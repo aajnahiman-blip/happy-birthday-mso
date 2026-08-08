@@ -1,0 +1,120 @@
+export const initialGuestBookEntries = [
+  {
+    id: 'entry-1',
+    name: 'أمينة ك.',
+    message: 'كل عام وأنت بألف خير يا محمد سفيان! أتمنى لك سنة جديدة مليئة بالسعادة، التوفيق، والبركات. 🎉🎂✨',
+    emoji: '🎉',
+    created_at: '2026-08-08T11:45:00Z',
+    likes_count: 7,
+    liked_by_user: false,
+    comments: [
+      {
+        id: 'comm-1',
+        author: 'محمد سفيان M♡S♡O',
+        text: 'شكراً جزيلاً لكِ أمينة! أسعدتني كلماتكِ الدافئة جداً ❤️',
+        created_at: '2026-08-08T12:05:00Z',
+      },
+    ],
+  },
+  {
+    id: 'entry-2',
+    name: 'عائلة زيد',
+    message: 'عيد ميلاد سعيد للغالي M♡S♡O 💎! دمت شامخاً، ناجحاً ومشعاً كعادتك. 💖🥂',
+    emoji: '🥂',
+    created_at: '2026-08-08T09:30:00Z',
+    likes_count: 11,
+    liked_by_user: true,
+    comments: [],
+  },
+  {
+    id: 'entry-3',
+    name: 'مريم س.',
+    message: 'عاما جديدا مفعما بالصحة والمسرات والانجازات الكبيرة يا أبا سفيان الغالي! 🌟👑',
+    emoji: '👑',
+    created_at: '2026-08-07T21:10:00Z',
+    likes_count: 14,
+    liked_by_user: false,
+    comments: [
+      {
+        id: 'comm-2',
+        author: 'فرح',
+        text: 'تهنئة رائعة ومستحقة جداً! ✨',
+        created_at: '2026-08-07T22:00:00Z',
+      },
+    ],
+  },
+  {
+    id: 'entry-4',
+    name: 'طارق ح.',
+    message: 'أسأل الله أن يحقق لك كل أمانيك ودعواتك في هذا العام الجديد. حفظك الله ورعاك! 🤲✨',
+    emoji: '✨',
+    created_at: '2026-08-07T16:00:00Z',
+    likes_count: 6,
+    liked_by_user: false,
+    comments: [],
+  },
+  {
+    id: 'entry-5',
+    name: 'لينا ب.',
+    message: 'عيد ميلاد سعيد محمد سفيان M♡S♡O 💎! كل التمنيات بأيام مليئة بالبهجة والسلام والحب! 🎁🎂',
+    emoji: '🎂',
+    created_at: '2026-08-06T18:40:00Z',
+    likes_count: 9,
+    liked_by_user: false,
+    comments: [],
+  },
+]
+
+export const initialPhotoMemories = [
+  {
+    id: 'photo-mem-1',
+    title: 'ساعة الاحتفال الذهبية',
+    description: 'مشهد مفعم بنور الغروب الدافئ، المحبة، والضحكات الصادقة.',
+    src: '/media/photos/photo-1.svg',
+    category: 'ذكريات',
+    likes_count: 18,
+    liked_by_user: false,
+    comments: [
+      {
+        id: 'pcomm-1',
+        author: 'سارة م.',
+        text: 'الإضاءة والأجواء رائعة جداً! ✨',
+        created_at: '2026-08-07T19:20:00Z',
+      },
+    ],
+  },
+  {
+    id: 'photo-mem-2',
+    title: 'تأملات رحلة العمرة',
+    description: 'ذكرى إيمانية مباركة مفعمة بالهدوء والخشوع والامتنان.',
+    src: '/media/umrah/umrah-1.svg',
+    category: 'العمرة',
+    likes_count: 29,
+    liked_by_user: true,
+    comments: [
+      {
+        id: 'pcomm-2',
+        author: 'أحمد',
+        text: 'تقبل الله صالح الأعمال! صورة مؤلمة ومؤثرة جداً.',
+        created_at: '2026-08-06T12:00:00Z',
+      },
+    ],
+  },
+  {
+    id: 'photo-mem-3',
+    title: 'فرحة التخرج والتميز',
+    description: 'احتفاء بالجهد والمثابرة وآفاق المستقبل المشرق لمحمد سفيان.',
+    src: '/media/graduation/grad-1.svg',
+    category: 'التخرج',
+    likes_count: 22,
+    liked_by_user: false,
+    comments: [
+      {
+        id: 'pcomm-3',
+        author: 'يوسف',
+        text: 'لحظة فخر واعتزاز كبرى! ألف مبروك النجاح.',
+        created_at: '2026-08-05T15:30:00Z',
+      },
+    ],
+  },
+]

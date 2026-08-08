@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Memory placeholder">
+  <rect width="800" height="900" fill="#fff3ed"/>
+  <circle cx="430" cy="360" r="170" fill="#ffb877"/>
+  <rect x="180" y="560" width="440" height="130" rx="24" fill="#ff8e71"/>
+</svg>

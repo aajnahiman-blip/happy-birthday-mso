@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Umrah Journey">
+  <defs>
+    <linearGradient id="umrahBg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06070b"/>
+      <stop offset="50%" stop-color="#1a2639"/>
+      <stop offset="100%" stop-color="#0b132b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d77f"/>
+      <stop offset="100%" stop-color="#d4af37"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="900" rx="32" fill="url(#umrahBg1)"/>
+  <!-- Kaaba Motif -->
+  <rect x="280" y="240" width="240" height="240" fill="#06070b" stroke="url(#gold)" stroke-width="6" rx="12"/>
+  <rect x="280" y="290" width="240" height="36" fill="url(#gold)"/>
+  <circle cx="400" cy="360" r="30" fill="url(#gold)"/>
+  <text x="400" y="600" font-family="sans-serif" font-size="36" font-weight="bold" fill="#f8f8f8" text-anchor="middle">محمد سفيان | M♡S♡O 💎</text>
+  <text x="400" y="660" font-family="sans-serif" font-size="24" fill="#d4af37" text-anchor="middle">Sacred Umrah Journey | رحلة العمرة المباركة</text>
+</svg>

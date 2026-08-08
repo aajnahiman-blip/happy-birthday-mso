@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Luxury birthday placeholder">
+  <rect width="800" height="900" fill="#fff8ea"/>
+  <circle cx="320" cy="330" r="180" fill="#ffd27a"/>
+  <circle cx="500" cy="360" r="120" fill="#ffafc7"/>
+  <rect x="160" y="560" width="480" height="150" rx="34" fill="#ff8b8b"/>
+  <path d="M240 600C305 510 390 470 500 470C610 470 670 510 710 600" stroke="#ffffff" stroke-width="24" fill="none" stroke-linecap="round"/>
+</svg>

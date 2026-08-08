@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-label="Umrah Reflection">
+  <defs>
+    <linearGradient id="umrahBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b"/>
+      <stop offset="100%" stop-color="#14213d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="900" rx="32" fill="url(#umrahBg2)"/>
+  <circle cx="400" cy="360" r="180" stroke="#d4af37" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M400 220 L440 320 L540 320 L460 380 L490 480 L400 420 L310 480 L340 380 L260 320 L360 320 Z" fill="#d4af37" opacity="0.3"/>
+  <text x="400" y="600" font-family="sans-serif" font-size="36" font-weight="bold" fill="#f8f8f8" text-anchor="middle">محمد سفيان | M♡S♡O 💎</text>
+  <text x="400" y="660" font-family="sans-serif" font-size="24" fill="#d4af37" text-anchor="middle">Peace & Gratitude | دعاء واطمئنان</text>
+</svg>

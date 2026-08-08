@@ -1,0 +1,73 @@
+import { useEffect, useMemo, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { PageLayout } from '../components/common/Layout'
+import { LuxuryVideoCard } from '../components/video/LuxuryVideoCard'
+import { useMusic } from '../contexts/MusicContext'
+import { birthdayVideos } from '../data/videoContent'
+import { useLanguage } from '../contexts/LanguageContext'
+
+export function BirthdayVideosPage() {
+  const { t, language } = useLanguage()
+  const { isPlaying, togglePlayback } = useMusic()
+  const [activeVideoId, setActiveVideoId] = useState(null)
+
+  const activeVideo = useMemo(() => birthdayVideos.find((video) => video.id === activeVideoId) ?? null, [activeVideoId])
+
+  useEffect(() => {
+    if (activeVideoId && isPlaying) {
+      togglePlayback()
+    }
+  }, [activeVideoId, isPlaying, togglePlayback])
+
+  const handlePlay = (videoId) => {
+    setActiveVideoId(videoId)
+  }
+
+  const handlePause = () => {
+    setActiveVideoId(null)
+  }
+
+  const handleClose = () => {
+    setActiveVideoId(null)
+    if (!isPlaying) {
+      togglePlayback()
+    }
+  }
+
+  return (
+    <PageLayout titleKey="videosTitle" descriptionKey="videosDesc">
+      <Helmet>
+        <title>{t('videosTitle')} | M♡S♡O 💎</title>
+        <meta name="description" content="Birthday videos gallery celebrating Mohamed Soufiane M♡S♡O 💎." />
+      </Helmet>
+
+      <section className="rounded-[2rem] border border-[var(--border)] bg-[rgba(15,23,42,0.72)] p-4 shadow-[0_24px_70px_rgba(2,8,23,0.28)] backdrop-blur-xl sm:p-6">
+        <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">M♡S♡O 💎</p>
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl text-[var(--text-primary)]">{t('videosTitle')}</h2>
+            <p className="mt-2 max-w-2xl text-xs leading-6 text-[var(--text-secondary)] sm:text-sm">
+              {t('videosDesc')}
+            </p>
+          </div>
+          <div className="rounded-full border border-[rgba(212,175,55,0.3)] bg-[rgba(212,175,55,0.12)] px-4 py-2 text-xs font-bold text-[#d4af37]">
+            {birthdayVideos.length} {language === 'ar' ? 'فيديوهات احتفالية' : 'Cinematic videos'}
+          </div>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-2">
+          {birthdayVideos.map((video) => (
+            <LuxuryVideoCard
+              key={video.id}
+              video={video}
+              isActive={activeVideo?.id === video.id}
+              onPlay={() => handlePlay(video.id)}
+              onPause={handlePause}
+              onClose={handleClose}
+            />
+          ))}
+        </div>
+      </section>
+    </PageLayout>
+  )
+}
