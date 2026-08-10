@@ -5,10 +5,17 @@ import { Helmet } from 'react-helmet-async'
 import { IntroScene } from '../components/effects/IntroScene'
 import { introMessage } from '../data/homeContent'
 import { useLanguage } from '../contexts/LanguageContext'
+import { useMusic } from '../contexts/MusicContext'
 
 export function IntroPage() {
   const navigate = useNavigate()
   const { t, language } = useLanguage()
+  const { playMusic } = useMusic()
+
+  const handleEnter = async () => {
+    await playMusic()
+    navigate('/home')
+  }
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -51,15 +58,14 @@ export function IntroPage() {
             type="button"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => navigate('/home')}
+            onClick={handleEnter}
             className="mt-8 rounded-full border border-[rgba(212,175,55,0.4)] bg-gradient-to-r from-[#d4af37] via-[#f5d77f] to-[#d4af37] px-8 py-3.5 text-sm font-bold text-[#06070b] shadow-[0_12px_35px_rgba(212,175,55,0.35)] transition hover:shadow-[0_15px_40px_rgba(212,175,55,0.5)]"
           >
             {language === 'ar' ? 'دخول التجربة الفاخرة 💎' : 'Enter the Experience 💎'}
           </motion.button>
         </motion.div>
       </div>
-
-      <audio autoPlay loop src="/media/music/soft-piano.wav" />
     </div>
   )
 }
+

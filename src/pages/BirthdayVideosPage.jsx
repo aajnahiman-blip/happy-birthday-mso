@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { PageLayout } from '../components/common/Layout'
 import { LuxuryVideoCard } from '../components/video/LuxuryVideoCard'
@@ -8,29 +8,35 @@ import { useLanguage } from '../contexts/LanguageContext'
 
 export function BirthdayVideosPage() {
   const { t, language } = useLanguage()
-  const { isPlaying, togglePlayback } = useMusic()
+  const { isPlaying, pauseMusic, resumeMusic } = useMusic()
   const [activeVideoId, setActiveVideoId] = useState(null)
+  const wasMusicPlayingRef = useRef(false)
 
   const activeVideo = useMemo(() => birthdayVideos.find((video) => video.id === activeVideoId) ?? null, [activeVideoId])
 
-  useEffect(() => {
-    if (activeVideoId && isPlaying) {
-      togglePlayback()
-    }
-  }, [activeVideoId, isPlaying, togglePlayback])
-
   const handlePlay = (videoId) => {
+    if (!activeVideoId) {
+      wasMusicPlayingRef.current = isPlaying
+      if (isPlaying) {
+        pauseMusic()
+      }
+    }
     setActiveVideoId(videoId)
   }
 
   const handlePause = () => {
     setActiveVideoId(null)
+    if (wasMusicPlayingRef.current) {
+      resumeMusic()
+      wasMusicPlayingRef.current = false
+    }
   }
 
   const handleClose = () => {
     setActiveVideoId(null)
-    if (!isPlaying) {
-      togglePlayback()
+    if (wasMusicPlayingRef.current) {
+      resumeMusic()
+      wasMusicPlayingRef.current = false
     }
   }
 
@@ -71,3 +77,4 @@ export function BirthdayVideosPage() {
     </PageLayout>
   )
 }
+

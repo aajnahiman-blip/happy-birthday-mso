@@ -550,7 +550,7 @@ export const photoGallery = [
     "id": "photo-11",
     "title": "قصتنا معاً - 11",
     "description": "إطلالة ساحرة وصورة توثق أجمل اللحظات التي تجمعنا معاً.",
-    "src": "/media/our-photos/our-photo-45.mp4",
+    "src": "/media/our-photos/our-photo-45.jpg",
     "category": "صورنا",
     "aspect": "landscape"
   },

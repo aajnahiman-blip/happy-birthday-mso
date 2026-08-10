@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
@@ -7,11 +7,11 @@ import { AnimatedBackground } from '../components/effects/AnimatedBackground'
 import { featuredPhotos, latestMemories, quoteContent } from '../data/homeContent'
 import { GuestBookSection } from '../components/guestbook/GuestBookSection'
 import { useLanguage } from '../contexts/LanguageContext'
+import { useMusic } from '../contexts/MusicContext'
 
 export function HomePage() {
   const { t, language } = useLanguage()
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const { isPlaying, togglePlayback } = useMusic()
 
   const heroPhoto = useMemo(() => featuredPhotos[0], [])
 
@@ -22,23 +22,6 @@ export function HomePage() {
     link.click()
   }
 
-  const toggleMusic = async () => {
-    if (!audioRef.current) {
-      return
-    }
-
-    if (isPlaying) {
-      audioRef.current.pause()
-      setIsPlaying(false)
-    } else {
-      try {
-        await audioRef.current.play()
-        setIsPlaying(true)
-      } catch (error) {
-        console.error('Unable to play audio', error)
-      }
-    }
-  }
 
   return (
     <PageLayout titleKey="homeTitle" descriptionKey="homeDesc">
@@ -135,7 +118,7 @@ export function HomePage() {
             </div>
             <button
               type="button"
-              onClick={toggleMusic}
+              onClick={togglePlayback}
               className="rounded-full border border-[rgba(212,175,55,0.3)] bg-[rgba(212,175,55,0.12)] px-4 py-2 text-xs font-bold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#06070b] transition"
             >
               {isPlaying ? t('pauseMusic') : t('playMusic')}
@@ -205,7 +188,7 @@ export function HomePage() {
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <button
               type="button"
-              onClick={toggleMusic}
+              onClick={togglePlayback}
               className="rounded-full bg-gradient-to-r from-[#d4af37] to-[#b89524] px-5 py-2 text-xs font-bold text-[#06070b]"
             >
               {isPlaying ? t('pauseMusic') : t('playMusic')}
@@ -214,7 +197,6 @@ export function HomePage() {
               {language === 'ar' ? 'أنغام بيانو هادئة ترافق تصفحك لاحتفال محمد سفيان.' : 'Gentle piano soundtrack for browsing.'}
             </p>
           </div>
-          <audio ref={audioRef} loop src="/media/music/soft-piano.wav" />
         </motion.section>
       </div>
 

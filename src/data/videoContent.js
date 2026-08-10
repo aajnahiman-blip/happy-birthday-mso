@@ -11,7 +11,7 @@ export const birthdayVideos = [
     "id": "video-2",
     "title": "فيديو عيد الميلاد السينمائي 2",
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
-    "poster": "/media/our-photos/our-photo-02.mp4",
+    "poster": "/media/our-photos/our-photo-02.jpg",
     "url": "/media/videos/vid-02.mp4",
     "duration": ""
   },
@@ -83,7 +83,7 @@ export const birthdayVideos = [
     "id": "video-11",
     "title": "فيديو عيد الميلاد السينمائي 11",
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
-    "poster": "/media/our-photos/our-photo-11.mp4",
+    "poster": "/media/our-photos/our-photo-10.jpg",
     "url": "/media/videos/vid-11.mp4",
     "duration": ""
   }
