@@ -4,6 +4,7 @@ import { FaCommentDots, FaHeart, FaMagic, FaPenFancy, FaPhotoVideo } from 'react
 import { GuestBookForm } from './GuestBookForm'
 import { GuestBookList } from './GuestBookList'
 import { MemoryInteractions } from './MemoryInteractions'
+import { DedicationQuote } from '../common/DedicationQuote'
 import { useGuestBook } from '../../hooks/useGuestBook'
 import { useMemoryInteractions } from '../../hooks/useMemoryInteractions'
 import { useLanguage } from '../../contexts/LanguageContext'
@@ -45,7 +46,8 @@ export function GuestBookSection() {
 
   return (
     <section className="space-y-8 mt-24 mb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="text-center">
+      <DedicationQuote quoteKey="quoteGuestbook" />
+      <div className="text-center mt-12">
         <h2 className="text-3xl font-bold sm:text-4xl text-[var(--text-primary)]">
           {t('guestbookTitle')}
         </h2>

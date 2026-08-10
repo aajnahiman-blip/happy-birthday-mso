@@ -112,8 +112,8 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
       <div className="p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#2563EB] font-bold">
-              M♡S♡O 💎 Birthday Video
+            <p className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">
+              M♡S♡O Birthday Video
             </p>
             <h3 className="mt-1 text-lg font-semibold text-[var(--text-primary)]">{video.title}</h3>
           </div>

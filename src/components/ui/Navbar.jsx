@@ -108,19 +108,24 @@ export function Navbar() {
   const mobileLinkClass = ({ isActive }) =>
     `block w-full rounded-xl px-4 py-3 text-sm font-semibold transition duration-200 ${
       isActive
-        ? 'bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] text-white font-bold shadow-[inset_0_0_0_1px_rgba(56,189,248,0.2)]'
+        ? 'bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] text-white font-bold shadow-[inset_0_0_0_1px_rgba(226,232,240,0.15)]'
         : 'text-[var(--text-secondary)] hover:bg-[rgba(29,78,216,0.12)] hover:text-[var(--text-primary)]'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-[var(--border)] bg-[rgba(3,5,8,0.94)] backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-[rgba(226,232,240,0.12)] bg-[rgba(3,5,8,0.95)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
         <NavLink
           to="/"
-          className="flex-shrink-0 flex items-center gap-2 text-base font-bold tracking-wider text-[var(--accent)] hover:opacity-90 transition sm:text-lg"
+          className="flex-shrink-0 flex items-center gap-2.5 text-base font-bold tracking-wider text-[var(--accent)] hover:opacity-90 transition sm:text-lg"
         >
-          <span className="bg-gradient-to-r from-[#1D4ED8] via-[#2563EB] to-[#38BDF8] bg-clip-text text-transparent">
-            M♡S♡O 💎
+          <img
+            src="/media/logo/mso-logo.jpg"
+            alt="M♡S♡O Logo"
+            className="h-8 w-auto rounded-lg object-contain border border-[rgba(226,232,240,0.18)] shadow-[0_0_12px_rgba(29,78,216,0.15)]"
+          />
+          <span className="bg-gradient-to-r from-[#F8FAFC] via-[#CBD5E1] to-[#38BDF8] bg-clip-text text-transparent font-extrabold tracking-widest text-sm sm:text-base">
+            M♡S♡O
           </span>
         </NavLink>
 
@@ -139,7 +144,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleLanguage}
-            className="ms-1 flex items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.2)] bg-[rgba(29,78,216,0.1)] px-3 py-1.5 text-xs font-bold text-[#38BDF8] hover:bg-[rgba(29,78,216,0.22)] transition duration-200"
+            className="ms-1 flex items-center gap-1.5 rounded-full border border-[rgba(226,232,240,0.18)] bg-[rgba(29,78,216,0.1)] px-3 py-1.5 text-xs font-bold text-[#E2E8F0] hover:bg-[rgba(29,78,216,0.22)] transition duration-200"
             title="تغيير اللغة / Change Language"
           >
             <FaGlobe className="text-[10px]" />
@@ -151,7 +156,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleLanguage}
-            className="flex items-center gap-1 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.08)] px-2.5 py-1.5 text-[11px] font-bold text-[#38BDF8] transition"
+            className="flex items-center gap-1 rounded-full border border-[rgba(226,232,240,0.15)] bg-[rgba(29,78,216,0.08)] px-2.5 py-1.5 text-[11px] font-bold text-[#E2E8F0] transition"
             title="تغيير اللغة / Change Language"
           >
             <FaGlobe className="text-[10px]" />
@@ -162,7 +167,7 @@ export function Navbar() {
             ref={buttonRef}
             type="button"
             onClick={toggle}
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(56,189,248,0.15)] bg-[rgba(8,17,31,0.7)] text-[var(--text-primary)] transition hover:border-[rgba(56,189,248,0.3)] hover:bg-[rgba(29,78,216,0.15)] active:scale-95"
+            className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(226,232,240,0.15)] bg-[rgba(8,17,31,0.7)] text-[var(--text-primary)] transition hover:border-[rgba(226,232,240,0.3)] hover:bg-[rgba(29,78,216,0.15)] active:scale-95"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
           >
@@ -203,7 +208,7 @@ export function Navbar() {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 top-[calc(var(--navbar-h,52px))] z-40 bg-[rgba(0,0,0,0.5)] backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 top-[calc(var(--navbar-h,52px))] z-40 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm lg:hidden"
               onClick={() => setIsOpen(false)}
             />
 
@@ -214,7 +219,7 @@ export function Navbar() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="absolute inset-x-0 top-full z-50 mx-3 mt-1.5 overflow-hidden rounded-2xl border border-[rgba(56,189,248,0.1)] bg-[rgba(3,5,8,0.97)] shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-2xl lg:hidden"
+              className="absolute inset-x-0 top-full z-50 mx-3 mt-1.5 overflow-hidden rounded-2xl border border-[rgba(226,232,240,0.12)] bg-[rgba(3,5,8,0.97)] shadow-[0_20px_60px_rgba(0,0,0,0.6)] backdrop-blur-2xl lg:hidden"
             >
               <div className="max-h-[70vh] overflow-y-auto overscroll-contain p-3">
                 <div className="space-y-0.5">
@@ -238,11 +243,18 @@ export function Navbar() {
                   ))}
                 </div>
 
-                <div className="my-3 h-px bg-gradient-to-r from-transparent via-[rgba(56,189,248,0.15)] to-transparent" />
+                <div className="my-3 h-px bg-gradient-to-r from-transparent via-[rgba(226,232,240,0.15)] to-transparent" />
 
-                <p className="text-center text-[10px] tracking-widest text-[var(--text-secondary)] opacity-50 uppercase font-semibold pb-1">
-                  M♡S♡O 💎
-                </p>
+                <div className="flex items-center justify-center gap-2 pb-1">
+                  <img
+                    src="/media/logo/mso-logo.jpg"
+                    alt="M♡S♡O"
+                    className="h-5 w-auto rounded object-contain border border-[rgba(226,232,240,0.2)]"
+                  />
+                  <span className="text-[11px] tracking-widest text-[#CBD5E1] uppercase font-bold">
+                    M♡S♡O
+                  </span>
+                </div>
               </div>
             </motion.div>
           </>

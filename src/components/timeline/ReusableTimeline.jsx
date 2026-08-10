@@ -9,17 +9,6 @@ export function ReusableTimeline({ title, description, milestones, pageTitle, pa
         <meta name="description" content={pageDescription} />
       </Helmet>
 
-      <motion.section
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm"
-      >
-        <p className="text-sm uppercase tracking-[0.35em] text-[var(--text-muted)]">Our Story</p>
-        <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">{title}</h2>
-        <p className="mt-3 max-w-2xl text-sm leading-8 text-[var(--text-secondary)] sm:text-base">{description}</p>
-      </motion.section>
-
       <div className="space-y-4">
         {milestones.map((milestone, index) => (
           <motion.article

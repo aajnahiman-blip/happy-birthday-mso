@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import confetti from 'canvas-confetti'
-import { FaCrown, FaGem, FaHeart, FaGift, FaMagic } from 'react-icons/fa'
+import { FaHeart, FaGift, FaMagic } from 'react-icons/fa'
 import { PageLayout } from '../components/common/Layout'
 import { LuxuryCake } from '../components/effects/LuxuryCake'
 import { GoldenParticles } from '../components/effects/GoldenParticles'
@@ -10,9 +10,9 @@ import { AnimatedBackground } from '../components/effects/AnimatedBackground'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useMusic } from '../contexts/MusicContext'
 
-/* ─── Fireworks cannon ──────────────────────────────────────────────────── */
+/* ─── Warm Fireworks cannon ──────────────────────────────────────────────── */
 function launchFireworks() {
-  const colors = ['#1D4ED8', '#38BDF8', '#ffffff', '#67E8F9', '#CBD5E1', '#d4af37']
+  const colors = ['#E11D48', '#F59E0B', '#D97706', '#FBBF24', '#ffffff']
 
   // starburst from centre
   confetti({
@@ -54,11 +54,11 @@ function launchFireworks() {
   })
 }
 
-/* ─── Sustained golden/cyan rain ─────────────────────────────────────────────── */
+/* ─── Sustained warm golden/red rain ─────────────────────────────────────── */
 function launchGoldenRain() {
   const duration = 5000
   const animationEnd = Date.now() + duration
-  const colors = ['#1D4ED8', '#38BDF8', '#ffffff', '#0B1730', '#F8FAFC', '#d4af37']
+  const colors = ['#E11D48', '#F59E0B', '#FBBF24', '#ffffff', '#D97706', '#1D4ED8']
 
   const interval = setInterval(() => {
     const timeLeft = animationEnd - Date.now()
@@ -108,7 +108,7 @@ export function FinalSurprisePage() {
     // Start music
     playMusic()
 
-    // Cinematic royal blue/cyan light flash
+    // Warm golden/amber light flash
     setShowGoldenFlash(true)
     setTimeout(() => setShowGoldenFlash(false), 1800)
 
@@ -126,7 +126,7 @@ export function FinalSurprisePage() {
       particleCount: 100,
       spread: 120,
       origin: { y: 0.6 },
-      colors: ['#1D4ED8', '#38BDF8', '#ffffff', '#67E8F9', '#d4af37'],
+      colors: ['#E11D48', '#F59E0B', '#FBBF24', '#ffffff', '#D97706'],
       shapes: ['star', 'circle'],
       zIndex: 9999,
     })
@@ -145,14 +145,17 @@ export function FinalSurprisePage() {
   return (
     <PageLayout titleKey="finalSurpriseTitle" descriptionKey="finalSurpriseDesc">
       <Helmet>
-        <title>{t('finalSurpriseTitle')} | M♡S♡O 💎</title>
+        <title>{t('finalSurpriseTitle')} | M♡S♡O</title>
         <meta
           name="description"
-          content="A luxury cinematic birthday surprise dedicated with love to Mohamed Soufiane — M♡S♡O 💎."
+          content="A luxury cinematic birthday experience dedicated with love to Mohamed Soufiane — M♡S♡O."
         />
       </Helmet>
 
-      {/* ── Cinematic royal blue/cyan light flash overlay ── */}
+      {/* Soft cinematic vignette framing */}
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(3,5,8,0.5)_100%)]" />
+
+      {/* ── Warm golden/amber celebration light flash overlay ── */}
       <AnimatePresence>
         {showGoldenFlash && (
           <motion.div
@@ -164,49 +167,43 @@ export function FinalSurprisePage() {
             className="pointer-events-none fixed inset-0 z-[9998]"
             style={{
               background:
-                'radial-gradient(ellipse at center, rgba(29,78,216,0.5) 0%, rgba(56,189,248,0.25) 40%, transparent 75%)',
+                'radial-gradient(ellipse at center, rgba(245,158,11,0.45) 0%, rgba(225,29,72,0.2) 40%, transparent 75%)',
             }}
           />
         )}
       </AnimatePresence>
 
-      <div className="relative space-y-10 overflow-hidden py-4">
+      <div className="relative space-y-10 overflow-hidden py-4 z-10">
         {/* Ambient particle system */}
         <AnimatedBackground />
         <GoldenParticles count={35} isBlown={isBlown} />
 
-        {/* ── Hero Section ── */}
+        {/* ── Hero Section: DARK BG → PROMINENT M♡S♡O LOGO ── */}
         <motion.section
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="relative text-center"
         >
-          {/* Brand pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(56,189,248,0.2)] bg-[rgba(29,78,216,0.12)] px-5 py-1.5 text-xs font-bold tracking-widest text-[#38BDF8] shadow-[0_0_20px_rgba(29,78,216,0.15)]">
-            <FaGem className="text-[10px]" />
-            <span>M♡S♡O 💎 | {t('fullName')}</span>
-            <FaGem className="text-[10px]" />
-          </div>
 
           {/* Headline */}
           <motion.h1
-            className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
-            animate={isBlown ? { scale: [1, 1.04, 1] } : {}}
+            className="text-3xl font-extrabold leading-tight tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
+            animate={isBlown ? { scale: [1, 1.03, 1] } : {}}
             transition={{ duration: 0.5 }}
           >
             {language === 'ar' ? (
               <>
                 كل عام وأنت{' '}
-                <span className="bg-gradient-to-r from-[#1D4ED8] via-[#38BDF8] to-[#1D4ED8] bg-clip-text text-transparent">
-                  M♡S♡O 💎
+                <span className="bg-gradient-to-r from-[#F8FAFC] via-[#CBD5E1] to-[#38BDF8] bg-clip-text text-transparent">
+                  محمد سفيان
                 </span>
               </>
             ) : (
               <>
                 Happy Birthday{' '}
-                <span className="bg-gradient-to-r from-[#1D4ED8] via-[#38BDF8] to-[#1D4ED8] bg-clip-text text-transparent">
-                  M♡S♡O 💎
+                <span className="bg-gradient-to-r from-[#F8FAFC] via-[#CBD5E1] to-[#38BDF8] bg-clip-text text-transparent">
+                  Mohamed Soufiane
                 </span>
               </>
             )}
@@ -215,28 +212,24 @@ export function FinalSurprisePage() {
           {/* Subtitle */}
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
             {language === 'ar'
-              ? 'مرحباً بك في المفاجأة الختامية الفاخرة ✨ صُمِّمت كل تفصيلة فيها بحبٍّ خالص إهداءً للغالي على قلبي محمد سفيان.'
+              ? 'مرحباً بك في التجربة الختامية الفاخرة، صُمِّمت كل تفصيلة فيها بحبٍّ خالص إهداءً لمحمد سفيان.'
               : t('finalSurpriseDesc')}
           </p>
-
-          {/* Decorative ornament */}
-          <div className="mx-auto mt-5 flex items-center gap-3 justify-center">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#2563EB]" />
-            <FaCrown className="text-sm text-[#2563EB]" />
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#2563EB]" />
-          </div>
         </motion.section>
 
-        {/* ── Interactive Cake Card ── */}
+        {/* ── Interactive Cake Section: MIDNIGHT BLUE GLOW → CAKE CENTERPIECE → WARM CANDLELIGHT ── */}
         <motion.section
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.55, delay: 0.18 }}
-          className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(56,189,248,0.15)] bg-[rgba(8,17,31,0.88)] p-6 shadow-[0_24px_70px_rgba(3,5,8,0.45)] backdrop-blur-xl sm:p-10"
+          className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(226,232,240,0.14)] bg-[rgba(8,17,31,0.88)] p-6 shadow-[0_24px_70px_rgba(3,5,8,0.5)] backdrop-blur-xl sm:p-10"
         >
+          {/* Subtle blue/amber atmospheric glow behind cake */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[340px] w-[560px] rounded-full bg-[radial-gradient(ellipse,rgba(245,158,11,0.1)_0%,rgba(29,78,216,0.12)_50%,transparent_70%)] blur-3xl" />
+
           {/* Ambient corner glows */}
           <div className="pointer-events-none absolute -top-12 -left-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.15),transparent_70%)]" />
-          <div className="pointer-events-none absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.1),transparent_70%)]" />
+          <div className="pointer-events-none absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.1),transparent_70%)]" />
 
           <LuxuryCake isBlown={isBlown} onBlowCandles={triggerCelebration} />
         </motion.section>
@@ -257,11 +250,11 @@ export function FinalSurprisePage() {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(56,189,248,0.25)] bg-[rgba(29,78,216,0.15)] px-5 py-2 text-sm font-bold tracking-wide text-[#38BDF8]"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(226,232,240,0.2)] bg-[rgba(29,78,216,0.15)] px-5 py-2 text-sm font-bold tracking-wide text-[#E2E8F0]"
               >
-                <FaMagic className="text-xs" />
-                <span>{language === 'ar' ? 'تمت إضاءة أمنياتك ✨' : 'Your wish has been cast ✨'}</span>
-                <FaMagic className="text-xs" />
+                <FaMagic className="text-xs text-[#38BDF8]" />
+                <span>{language === 'ar' ? 'تمت إضاءة أمنياتك' : 'Your wish has been cast'}</span>
+                <FaMagic className="text-xs text-[#38BDF8]" />
               </motion.div>
 
               {/* Gift box → Final message */}
@@ -270,7 +263,7 @@ export function FinalSurprisePage() {
                   whileHover={{ scale: 1.04, y: -4 }}
                   whileTap={{ scale: 0.96 }}
                   onClick={handleGiftClick}
-                  className="cursor-pointer inline-flex flex-col items-center p-8 rounded-[2rem] border border-[rgba(56,189,248,0.2)] bg-[linear-gradient(135deg,rgba(8,17,31,0.92),rgba(3,5,8,0.96))] shadow-[0_0_55px_rgba(29,78,216,0.2)] backdrop-blur-xl"
+                  className="cursor-pointer inline-flex flex-col items-center p-8 rounded-[2rem] border border-[rgba(226,232,240,0.18)] bg-[linear-gradient(135deg,rgba(8,17,31,0.92),rgba(3,5,8,0.96))] shadow-[0_0_55px_rgba(29,78,216,0.2)] backdrop-blur-xl"
                 >
                   {/* Wobbling gift icon */}
                   <motion.div
@@ -281,7 +274,7 @@ export function FinalSurprisePage() {
                     <FaGift className="text-4xl" />
                   </motion.div>
 
-                  <p className="mt-4 text-sm font-bold text-[#38BDF8]">
+                  <p className="mt-4 text-sm font-bold text-[#E2E8F0]">
                     {language === 'ar'
                       ? 'انقر لفتح الهدية الختامية 💝'
                       : 'Tap to open your final gift 💝'}
@@ -298,11 +291,11 @@ export function FinalSurprisePage() {
                   initial={{ opacity: 0, scale: 0.88, y: 30 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(56,189,248,0.2)] bg-[linear-gradient(135deg,rgba(3,5,8,0.97),rgba(8,17,31,0.92))] p-7 shadow-[0_30px_90px_rgba(29,78,216,0.2)] backdrop-blur-2xl sm:p-12 text-start"
+                  className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(226,232,240,0.2)] bg-[linear-gradient(135deg,rgba(3,5,8,0.97),rgba(8,17,31,0.92))] p-7 shadow-[0_30px_90px_rgba(29,78,216,0.2)] backdrop-blur-2xl sm:p-12 text-start"
                 >
-                  {/* Corner blue glows */}
+                  {/* Corner glows */}
                   <div className="pointer-events-none absolute top-0 end-0 h-64 w-64 bg-[radial-gradient(circle_at_top_right,rgba(29,78,216,0.2),transparent_65%)]" />
-                  <div className="pointer-events-none absolute bottom-0 start-0 h-48 w-48 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.12),transparent_70%)]" />
+                  <div className="pointer-events-none absolute bottom-0 start-0 h-48 w-48 bg-[radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.12),transparent_70%)]" />
 
                   <div className="relative z-10 max-w-3xl mx-auto space-y-7">
                     {/* Heart icon */}
@@ -310,7 +303,7 @@ export function FinalSurprisePage() {
                       <motion.div
                         animate={{ scale: [1, 1.12, 1] }}
                         transition={{ duration: 1.4, repeat: Infinity }}
-                        className="h-16 w-16 flex items-center justify-center rounded-full border-2 border-[rgba(56,189,248,0.3)] bg-[rgba(29,78,216,0.15)] shadow-[0_0_30px_rgba(29,78,216,0.25)]"
+                        className="h-16 w-16 flex items-center justify-center rounded-full border-2 border-[rgba(226,232,240,0.25)] bg-[rgba(29,78,216,0.15)] shadow-[0_0_30px_rgba(29,78,216,0.25)]"
                       >
                         <FaHeart className="text-2xl text-sky-400" />
                       </motion.div>
@@ -321,19 +314,19 @@ export function FinalSurprisePage() {
                       {t('finalMessageTitle')}
                     </h2>
 
-                    {/* Blue divider */}
+                    {/* Silver/Chrome divider */}
                     <div className="flex items-center gap-3 justify-center">
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-60" />
-                      <FaGem className="text-[#38BDF8] text-xs opacity-80" />
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-60" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[rgba(226,232,240,0.3)] to-transparent" />
+                      <div className="h-1.5 w-1.5 rounded-full bg-[#E2E8F0]" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[rgba(226,232,240,0.3)] to-transparent" />
                     </div>
 
                     {/* Arabic romantic message body */}
-                    <div className="rounded-2xl border border-[rgba(56,189,248,0.15)] bg-[rgba(255,255,255,0.03)] p-6 shadow-inner sm:p-9">
+                    <div className="rounded-2xl border border-[rgba(226,232,240,0.15)] bg-[rgba(255,255,255,0.03)] p-6 shadow-inner sm:p-9">
                       {language === 'ar' ? (
                         <p className="text-base sm:text-lg leading-[2.1] text-[var(--text-secondary)] font-medium text-center" dir="rtl">
                           «&nbsp;إلى حبيبي الغالي على قلبي&nbsp;
-                          <span className="text-[#38BDF8] font-bold">محمد سفيان</span>
+                          <span className="text-[#E2E8F0] font-bold">محمد سفيان</span>
                           &nbsp;…<br />
                           كل لحظة في حياتي تصبح أجمل لأنّك فيها.
                           أنت الشخص الذي يجعل الدنيا تبدو مكاناً يستحق الابتسام،
@@ -351,21 +344,16 @@ export function FinalSurprisePage() {
                       )}
                     </div>
 
-                    {/* Closing signature */}
-                    <div className="pt-1 flex flex-col items-center gap-2">
-                      <p className="text-xs uppercase tracking-[0.4em] text-[#38BDF8] font-bold opacity-90">
+                    {/* Closing signature with real logo image */}
+                    <div className="pt-1 flex flex-col items-center gap-3">
+                      <p className="text-xs uppercase tracking-[0.4em] text-[#CBD5E1] font-semibold opacity-90">
                         {language === 'ar' ? 'من قلبي إلى حبيبي' : 'From my heart to my love'}
                       </p>
-                      <motion.p
-                        animate={{ opacity: [0.8, 1, 0.8] }}
-                        transition={{ duration: 2.5, repeat: Infinity }}
-                        className="text-2xl font-extrabold text-[var(--text-primary)] tracking-wide"
-                      >
-                        محمد سفيان |{' '}
-                        <span className="bg-gradient-to-r from-[#1D4ED8] via-[#38BDF8] to-[#1D4ED8] bg-clip-text text-transparent">
-                          M♡S♡O 💎
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl font-extrabold text-[var(--text-primary)] tracking-wide">
+                          محمد سفيان
                         </span>
-                      </motion.p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -381,11 +369,15 @@ export function FinalSurprisePage() {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="pb-6 text-center"
         >
-          <p className="text-xs tracking-widest text-[var(--text-secondary)] opacity-60 uppercase font-semibold">
-            {language === 'ar'
-              ? '✦ صُنِع بحبٍّ خالص لمحمد سفيان ✦'
-              : '✦ Crafted with pure love for Mohamed Soufiane ✦'}
-          </p>
+          <div className="mx-auto flex items-center justify-center gap-3 max-w-xs">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[rgba(226,232,240,0.25)]" />
+            <p className="text-[11px] tracking-widest text-[var(--text-secondary)] opacity-70 uppercase font-semibold">
+              {language === 'ar'
+                ? 'صُنِع بحبٍّ خالص لمحمد سفيان'
+                : 'Crafted with pure love for Mohamed Soufiane'}
+            </p>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[rgba(226,232,240,0.25)]" />
+          </div>
         </motion.div>
       </div>
     </PageLayout>

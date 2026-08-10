@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaCrown, FaStar } from 'react-icons/fa'
 import { useLanguage } from '../../contexts/LanguageContext'
 
 export function LuxuryCake({ isBlown, onBlowCandles }) {
@@ -42,26 +41,21 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
       >
         {/* CTA label pill */}
         <div
-          className={`mb-8 inline-flex items-center gap-2 rounded-full border px-6 py-2.5 backdrop-blur-xl transition-all duration-300 shadow-[0_0_25px_rgba(29,78,216,0.2)] ${
+          className={`mb-8 inline-flex items-center gap-3 rounded-full border px-6 py-2.5 backdrop-blur-xl transition-all duration-300 shadow-[0_0_25px_rgba(29,78,216,0.2)] ${
             isBlown
-              ? 'border-[rgba(56,189,248,0.4)] bg-[rgba(29,78,216,0.2)] text-[#38BDF8]'
-              : 'border-[rgba(56,189,248,0.2)] bg-[rgba(8,17,31,0.85)] text-[var(--text-primary)] group-hover:border-[#2563EB]'
+              ? 'border-[rgba(226,232,240,0.3)] bg-[rgba(29,78,216,0.2)] text-[#E2E8F0]'
+              : 'border-[rgba(226,232,240,0.18)] bg-[rgba(8,17,31,0.9)] text-[var(--text-primary)] group-hover:border-[rgba(226,232,240,0.35)]'
           }`}
         >
-          <FaStar
-            className={`text-sm text-[#38BDF8] transition-transform ${
-              !isBlown ? 'animate-spin' : ''
-            }`}
-            style={{ animationDuration: '3s' }}
-          />
+          <div className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
           <span className="text-sm font-bold tracking-wider">
             {isBlown
               ? language === 'ar'
-                ? '✨ تمّ إطفاء الشموع بالأمنيات ✨'
-                : '✨ Candles blown — wish granted! ✨'
+                ? 'تمّ إطفاء الشموع بالأمنيات'
+                : 'Candles blown — wish granted!'
               : t('makeAWish')}
           </span>
-          <FaCrown className="text-sm text-[#2563EB]" />
+          <div className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
         </div>
 
         {/* ── Cake Structure ── */}
@@ -114,7 +108,7 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
 
                 {/* Candle body - Masculine Navy/Cyan gradient */}
                 <div
-                  className="h-10 w-2.5 rounded-t-sm border border-[rgba(56,189,248,0.3)] shadow-md"
+                  className="h-10 w-2.5 rounded-t-sm border border-[rgba(226,232,240,0.2)] shadow-md"
                   style={{
                     background: 'linear-gradient(to bottom, #38BDF8, #1D4ED8 40%, #08111F)',
                   }}
@@ -126,43 +120,47 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
           {/* Tier 1 — Top */}
           <motion.div
             animate={isBlown ? { boxShadow: '0 0 40px rgba(29,78,216,0.35)' } : {}}
-            className="relative z-10 h-14 w-44 rounded-t-2xl border border-[rgba(56,189,248,0.2)] sm:w-56 overflow-hidden"
+            className="relative z-10 h-14 w-44 rounded-t-2xl border border-[rgba(226,232,240,0.15)] sm:w-56 overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #08111F, #111827, #0B1730)' }}
           >
-            <div className="absolute top-0 inset-x-0 h-3 rounded-t-2xl bg-gradient-to-r from-[#1D4ED8]/20 via-[#38BDF8]/35 to-[#1D4ED8]/20" />
-            <div className="flex h-full items-center justify-center text-xs font-bold tracking-widest text-[#38BDF8] opacity-90">
+            <div className="absolute top-0 inset-x-0 h-3 rounded-t-2xl bg-gradient-to-r from-[#1D4ED8]/20 via-[#E2E8F0]/25 to-[#1D4ED8]/20" />
+            <div className="flex h-full items-center justify-center text-xs font-extrabold tracking-[0.25em] text-[#E2E8F0] opacity-90">
               M ♡ S ♡ O
             </div>
           </motion.div>
 
           {/* Tier 2 — Middle */}
           <div
-            className="relative z-0 h-16 w-60 rounded-t-xl border border-[rgba(56,189,248,0.22)] sm:w-72 overflow-hidden"
+            className="relative z-0 h-16 w-60 rounded-t-xl border border-[rgba(226,232,240,0.15)] sm:w-72 overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #060A0F, #111827, #060A0F)' }}
           >
             <div className="absolute top-0 inset-x-0 h-3 rounded-t-xl bg-[#1D4ED8]/20" />
             <div className="flex h-full items-center justify-center gap-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E2E8F0]" />
               <span className="h-2 w-2 rounded-full bg-[#1D4ED8]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#38BDF8]" />
-              <span className="h-2 w-2 rounded-full bg-[#1D4ED8]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E2E8F0]" />
             </div>
           </div>
 
           {/* Tier 3 — Base */}
           <motion.div
             animate={isBlown ? { boxShadow: '0 0 60px rgba(29,78,216,0.3)' } : {}}
-            className="relative z-0 h-20 w-72 rounded-t-3xl border border-[rgba(56,189,248,0.25)] sm:w-96 overflow-hidden"
+            className="relative z-0 h-20 w-72 rounded-t-3xl border border-[rgba(226,232,240,0.18)] sm:w-96 overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #030508, #08111F, #030508)' }}
           >
-            <div className="absolute top-0 inset-x-0 h-4 rounded-t-3xl bg-gradient-to-r from-[#1D4ED8]/30 via-[#38BDF8]/40 to-[#1D4ED8]/30" />
-            <div className="flex h-full items-center justify-center text-sm font-bold tracking-[0.35em] text-[#38BDF8]">
-              💎 LUXURY CELEBRATION 💎
+            <div className="absolute top-0 inset-x-0 h-4 rounded-t-3xl bg-gradient-to-r from-[#1D4ED8]/30 via-[#E2E8F0]/30 to-[#1D4ED8]/30" />
+            <div className="flex h-full items-center justify-center gap-4">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E2E8F0]" />
+              <span className="text-xs sm:text-sm font-bold tracking-[0.4em] text-[#CBD5E1]">
+                {t('fullName')}
+              </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E2E8F0]" />
             </div>
           </motion.div>
 
           {/* Plate */}
-          <div className="h-4 w-80 rounded-full border border-[rgba(56,189,248,0.35)] sm:w-[26rem] shadow-[0_10px_30px_rgba(29,78,216,0.25)]"
-            style={{ background: 'linear-gradient(90deg, #1D4ED8, #38BDF8, #1D4ED8)' }}
+          <div className="h-4 w-80 rounded-full border border-[rgba(226,232,240,0.25)] sm:w-[26rem] shadow-[0_10px_30px_rgba(29,78,216,0.25)]"
+            style={{ background: 'linear-gradient(90deg, #1D4ED8, #E2E8F0, #1D4ED8)' }}
           />
         </div>
       </motion.button>
@@ -171,8 +169,8 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
       <p className="mt-4 text-center text-xs text-[var(--text-secondary)] max-w-xs opacity-80">
         {isBlown
           ? language === 'ar'
-            ? 'أضاءت أمنياتك السماء يا حبيبي ✨'
-            : 'Your wishes lit up the sky ✨'
+            ? 'أضاءت أمنياتك السماء'
+            : 'Your wishes lit up the sky'
           : t('blowOutCandles')}
       </p>
     </div>

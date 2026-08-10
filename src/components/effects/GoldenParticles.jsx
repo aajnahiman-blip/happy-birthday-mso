@@ -1,25 +1,26 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 
-export function GoldenParticles({ count = 30, isBlown = false }) {
+export function GoldenParticles({ count = 25, isBlown = false }) {
   const particles = useMemo(() => {
-    const totalCount = isBlown ? count * 2.5 : count
-    return Array.from({ length: totalCount }).map((_, i) => {
-      const typeChoice = i % 8
-      let type = 'dot'
-      if (typeChoice === 0) type = 'heart'
-      else if (typeChoice === 1) type = 'sparkle'
-      else if (typeChoice === 2 && isBlown) type = 'balloon'
-      else if (typeChoice === 3 && isBlown) type = 'rose'
+    const totalCount = isBlown ? Math.floor(count * 1.6) : count
+    const warmColors = [
+      'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]',
+      'bg-[#F59E0B] shadow-[0_0_8px_rgba(245,158,11,0.6)]',
+      'bg-[#E11D48] shadow-[0_0_8px_rgba(225,29,72,0.6)]',
+      'bg-amber-200 shadow-[0_0_6px_rgba(253,230,138,0.6)]',
+      'bg-white shadow-[0_0_6px_rgba(255,255,255,0.7)]',
+    ]
 
+    return Array.from({ length: totalCount }).map((_, i) => {
       return {
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 8 + 4,
-        duration: Math.random() * 10 + 8,
-        delay: Math.random() * 4,
-        type,
+        size: Math.random() * 3 + 1.5,
+        duration: Math.random() * 12 + 10,
+        delay: Math.random() * 5,
+        colorClass: warmColors[i % warmColors.length],
       }
     })
   }, [count, isBlown])
@@ -31,9 +32,9 @@ export function GoldenParticles({ count = 30, isBlown = false }) {
           key={p.id}
           initial={{ opacity: 0, y: '105%', x: `${p.x}%` }}
           animate={{
-            opacity: [0, 0.9, 0.7, 0.9, 0],
+            opacity: [0, 0.7, 0.45, 0.7, 0],
             y: ['105%', '-10%'],
-            x: [`${p.x}%`, `${(p.x + (p.id % 2 === 0 ? 12 : -12))}%`],
+            x: [`${p.x}%`, `${(p.x + (p.id % 2 === 0 ? 8 : -8))}%`],
           }}
           transition={{
             duration: p.duration,
@@ -41,25 +42,13 @@ export function GoldenParticles({ count = 30, isBlown = false }) {
             delay: p.delay,
             ease: 'easeInOut',
           }}
-          style={{
-            position: 'absolute',
-          }}
+          style={{ position: 'absolute' }}
           className="flex items-center justify-center select-none"
         >
-          {p.type === 'heart' ? (
-            <span className="text-sky-400 text-sm drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">♥</span>
-          ) : p.type === 'balloon' ? (
-            <span className="text-sky-300 text-base drop-shadow-[0_0_10px_rgba(29,78,216,0.6)]">🎈</span>
-          ) : p.type === 'rose' ? (
-            <span className="text-sky-200 text-sm opacity-90 drop-shadow-[0_0_6px_rgba(56,189,248,0.4)]">✦</span>
-          ) : p.type === 'sparkle' ? (
-            <span className="text-[#67E8F9] text-xs drop-shadow-[0_0_10px_#1D4ED8]">✨</span>
-          ) : (
-            <div
-              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#38BDF8] shadow-[0_0_10px_#1D4ED8]"
-              style={{ width: `${p.size}px`, height: `${p.size}px` }}
-            />
-          )}
+          <div
+            className={`rounded-full ${p.colorClass}`}
+            style={{ width: `${p.size}px`, height: `${p.size}px` }}
+          />
         </motion.div>
       ))}
     </div>

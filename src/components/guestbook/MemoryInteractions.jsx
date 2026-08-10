@@ -32,7 +32,7 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
             <h3 className="text-xl font-bold text-[var(--text-primary)]">{t('photoInteractions')}</h3>
             <p className="mt-0.5 text-xs text-[var(--text-secondary)] sm:text-sm">
               {language === 'ar'
-                ? 'أظهر محبتك! أعجب وعلق مباشرة على الصور والذكريات المميزة لمحمد سفيان M♡S♡O 💎.'
+                ? 'أظهر محبتك! أعجب وعلق مباشرة على الصور والذكريات المميزة لمحمد سفيان M♡S♡O.'
                 : 'Show your love! Like and comment directly on cherished photos and milestone memories.'}
             </p>
           </div>

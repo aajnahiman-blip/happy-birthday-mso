@@ -57,21 +57,7 @@ export function ReusableGallery({ title, description, items, pageTitle, pageDesc
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[rgba(15,23,42,0.72)] p-6 shadow-[0_24px_70px_rgba(2,8,23,0.38)] backdrop-blur-xl"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.14),transparent_32%)]" />
-        <div className="relative">
-          <p className="text-sm uppercase tracking-[0.35em] text-[var(--text-muted)]">Luxury Gallery</p>
-          <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">{title}</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-8 text-[var(--text-secondary)] sm:text-base">{description}</p>
-        </div>
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.08 }}
+        transition={{ duration: 0.45 }}
         className="rounded-[2rem] border border-[var(--border)] bg-[rgba(15,23,42,0.72)] p-4 shadow-[0_24px_70px_rgba(2,8,23,0.28)] backdrop-blur-xl sm:p-6"
       >
         <div className="columns-1 gap-4 sm:columns-2 md:columns-3">

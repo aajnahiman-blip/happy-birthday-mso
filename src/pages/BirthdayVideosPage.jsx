@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { PageLayout } from '../components/common/Layout'
+import { DedicationQuote } from '../components/common/DedicationQuote'
 import { LuxuryVideoCard } from '../components/video/LuxuryVideoCard'
 import { useMusic } from '../contexts/MusicContext'
 import { birthdayVideos } from '../data/videoContent'
@@ -43,14 +44,17 @@ export function BirthdayVideosPage() {
   return (
     <PageLayout titleKey="videosTitle" descriptionKey="videosDesc">
       <Helmet>
-        <title>{t('videosTitle')} | M♡S♡O 💎</title>
-        <meta name="description" content="Birthday videos gallery celebrating Mohamed Soufiane M♡S♡O 💎." />
+        <title>{t('videosTitle')} | M♡S♡O</title>
+        <meta name="description" content="Birthday videos gallery celebrating Mohamed Soufiane M♡S♡O." />
       </Helmet>
 
-      <section className="rounded-[2rem] border border-[rgba(29,78,216,0.2)] bg-[rgba(8,17,31,0.78)] p-4 shadow-[0_24px_70px_rgba(3,5,8,0.38)] backdrop-blur-xl sm:p-6">
+      <div className="space-y-6">
+        <DedicationQuote quoteKey="quoteVideos" />
+
+        <section className="rounded-[2rem] border border-[rgba(226,232,240,0.12)] bg-[rgba(8,17,31,0.78)] p-4 shadow-[0_24px_70px_rgba(3,5,8,0.38)] backdrop-blur-xl sm:p-6">
         <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">M♡S♡O 💎</p>
+            <p className="text-xs uppercase tracking-[0.35em] text-[#E2E8F0] font-bold">M♡S♡O</p>
             <h2 className="mt-2 text-2xl font-bold sm:text-3xl text-[var(--text-primary)]">{t('videosTitle')}</h2>
             <p className="mt-2 max-w-2xl text-xs leading-6 text-[var(--text-secondary)] sm:text-sm">
               {t('videosDesc')}
@@ -74,6 +78,7 @@ export function BirthdayVideosPage() {
           ))}
         </div>
       </section>
+      </div>
     </PageLayout>
   )
 }

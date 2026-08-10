@@ -34,8 +34,8 @@ export function GuestBookForm({
 
       <div className="relative z-10">
         <div className="flex items-center gap-2">
-          <span className="flex h-8 items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.2)] bg-[rgba(29,78,216,0.12)] px-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#38BDF8]">
-            <FaMagic className="text-xs" /> M♡S♡O 💎 {t('guestbook')}
+          <span className="flex h-8 items-center gap-2 rounded-full border border-[rgba(226,232,240,0.18)] bg-[rgba(29,78,216,0.12)] px-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-[#E2E8F0]">
+            <span>M♡S♡O | {t('guestbook')}</span>
           </span>
         </div>
 
@@ -44,8 +44,8 @@ export function GuestBookForm({
         </h2>
         <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)] sm:text-base">
           {language === 'ar'
-            ? 'اكتب رسالة تهنئة، دعاء صادق، أو كلمة طيبة لمحمد سفيان M♡S♡O 💎 بمناسبة عيد ميلاده المبارك.'
-            : 'Write a warm message, blessing, or memory to celebrate Mohamed Soufiane M♡S♡O 💎.'}
+            ? 'اكتب رسالة تهنئة، دعاء صادق، أو كلمة طيبة لمحمد سفيان M♡S♡O بمناسبة عيد ميلاده المبارك.'
+            : 'Write a warm message, blessing, or memory to celebrate Mohamed Soufiane M♡S♡O.'}
         </p>
 
         {/* Success Banner */}
