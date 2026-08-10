@@ -69,16 +69,16 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-[1.8rem] border border-[rgba(212,175,55,0.2)] bg-[rgba(15,23,42,0.76)] p-5 shadow-[0_16px_40px_rgba(2,8,23,0.32)] backdrop-blur-xl transition-all duration-300 hover:border-[rgba(212,175,55,0.45)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] sm:p-6"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-[1.8rem] border border-[rgba(56,189,248,0.12)] bg-[rgba(8,17,31,0.78)] p-5 shadow-[0_16px_40px_rgba(3,5,8,0.32)] backdrop-blur-xl transition-all duration-300 hover:border-[rgba(56,189,248,0.3)] hover:shadow-[0_20px_50px_rgba(29,78,216,0.15)] sm:p-6"
     >
       {/* Top subtle glow bar */}
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[rgba(212,175,55,0.5)] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[rgba(56,189,248,0.3)] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div>
         {/* Card Header */}
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d4af37] via-[#b89524] to-[#735a10] text-sm font-bold text-[#06070b] shadow-[0_4px_14px_rgba(212,175,55,0.3)]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#1D4ED8] via-[#1e40af] to-[#1e3a8a] text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.3)]">
               {getInitials(entry.name)}
             </div>
             <div>
@@ -90,7 +90,7 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
             </div>
           </div>
 
-          <span className="rounded-full border border-[rgba(212,175,55,0.2)] bg-[rgba(212,175,55,0.08)] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#d4af37]">
+          <span className="rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.08)] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#38BDF8]">
             {language === 'ar' ? 'تهنئة' : 'Wish'}
           </span>
         </div>
@@ -111,8 +111,8 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
               onClick={() => onToggleLike(entry.id)}
               className={`group/heart flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all duration-200 ${
                 entry.liked_by_user
-                  ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
-                  : 'bg-[rgba(255,255,255,0.05)] text-[var(--text-secondary)] hover:bg-[rgba(212,175,55,0.1)] hover:text-[#d4af37]'
+                  ? 'bg-blue-500/20 text-sky-400 border border-blue-500/30'
+                  : 'bg-[rgba(255,255,255,0.05)] text-[var(--text-secondary)] hover:bg-[rgba(29,78,216,0.12)] hover:text-[#38BDF8]'
               }`}
             >
               <motion.span
@@ -120,7 +120,7 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
                 transition={{ duration: 0.25 }}
               >
                 {entry.liked_by_user ? (
-                  <FaHeart className="text-rose-500 text-sm" />
+                  <FaHeart className="text-sky-400 text-sm" />
                 ) : (
                   <FaRegHeart className="text-sm transition-transform group-hover/heart:scale-110" />
                 )}
@@ -134,7 +134,7 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
               onClick={() => setShowComments((prev) => !prev)}
               className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all duration-200 ${
                 showComments
-                  ? 'bg-[rgba(212,175,55,0.18)] text-[#d4af37] border border-[rgba(212,175,55,0.3)]'
+                  ? 'bg-[rgba(29,78,216,0.18)] text-[#38BDF8] border border-[rgba(56,189,248,0.2)]'
                   : 'bg-[rgba(255,255,255,0.05)] text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.1)] hover:text-[var(--text-primary)]'
               }`}
             >
@@ -154,15 +154,15 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="mt-3 overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.15)] bg-[rgba(6,7,11,0.5)] p-3"
+              className="mt-3 overflow-hidden rounded-2xl border border-[rgba(56,189,248,0.12)] bg-[rgba(3,5,8,0.6)] p-3"
             >
               {/* Existing Comments */}
               {entry.comments && entry.comments.length > 0 ? (
                 <div className="space-y-2.5 max-h-48 overflow-y-auto pr-1">
                   {entry.comments.map((comm) => (
-                    <div key={comm.id} className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(15,23,42,0.6)] p-2.5">
+                    <div key={comm.id} className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(8,17,31,0.6)] p-2.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-[#d4af37]">{comm.author}</span>
+                        <span className="font-bold text-[#38BDF8]">{comm.author}</span>
                         <span className="text-[10px] text-[var(--text-muted)]">{formatTimestamp(comm.created_at, language)}</span>
                       </div>
                       <p className="mt-1 text-xs leading-relaxed text-[var(--text-secondary)]">{comm.text}</p>
@@ -183,19 +183,19 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
                     placeholder={t('yourName')}
                     value={commentAuthor}
                     onChange={(e) => setCommentAuthor(e.target.value)}
-                    className="w-1/3 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(15,23,42,0.8)] px-2.5 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#d4af37]"
+                    className="w-1/3 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(8,17,31,0.8)] px-2.5 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
                   />
                   <input
                     type="text"
                     placeholder={t('addReply')}
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
-                    className="flex-1 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(15,23,42,0.8)] px-3 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#d4af37]"
+                    className="flex-1 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(8,17,31,0.8)] px-3 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
                   />
                   <button
                     type="submit"
                     disabled={isSubmittingComment || !commentText.trim()}
-                    className="flex items-center justify-center rounded-xl bg-[rgba(212,175,55,0.2)] px-3 py-1.5 text-xs font-bold text-[#d4af37] border border-[rgba(212,175,55,0.3)] hover:bg-[#d4af37] hover:text-[#06070b] transition duration-200 disabled:opacity-40"
+                    className="flex items-center justify-center rounded-xl bg-[rgba(29,78,216,0.2)] px-3 py-1.5 text-xs font-bold text-[#38BDF8] border border-[rgba(56,189,248,0.2)] hover:bg-[#1D4ED8] hover:text-white transition duration-200 disabled:opacity-40"
                   >
                     <FaPaperPlane className="text-[10px]" />
                   </button>

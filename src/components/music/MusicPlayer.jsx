@@ -32,10 +32,10 @@ export function MusicPlayer() {
   }
 
   return (
-    <section className="rounded-[2rem] border border-[rgba(212,175,55,0.25)] bg-[rgba(15,23,42,0.85)] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:p-6">
+    <section className="rounded-[2rem] border border-[rgba(29,78,216,0.2)] bg-[rgba(8,17,31,0.88)] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">Background Music</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">Background Music</p>
           <h3 className="mt-1 text-xl font-bold text-[var(--text-primary)]">{activeTrack.title}</h3>
           <p className="text-xs text-[var(--text-secondary)]">{activeTrack.artist}</p>
         </div>
@@ -48,8 +48,8 @@ export function MusicPlayer() {
               onClick={() => setCurrentTrack(track)}
               className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
                 activeTrack.id === track.id
-                  ? 'border-[#d4af37] bg-[rgba(212,175,55,0.2)] text-[#d4af37]'
-                  : 'border-[var(--border)] text-[var(--text-secondary)] hover:border-[#d4af37]'
+                  ? 'border-[#1D4ED8] bg-[rgba(29,78,216,0.15)] text-[#38BDF8]'
+                  : 'border-[var(--border)] text-[var(--text-secondary)] hover:border-[#2563EB]'
               }`}
             >
               {track.title}
@@ -71,7 +71,7 @@ export function MusicPlayer() {
           step="0.1"
           value={currentTime}
           onChange={handleSeek}
-          className="w-full accent-[#d4af37] cursor-pointer"
+          className="w-full accent-[#2563EB] cursor-pointer"
         />
       </div>
 
@@ -80,7 +80,7 @@ export function MusicPlayer() {
         <button
           type="button"
           onClick={togglePlayback}
-          className="rounded-full bg-gradient-to-r from-[#d4af37] to-[#b89524] px-6 py-2 text-xs font-bold text-[#06070b] shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:opacity-90 transition"
+          className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-6 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(29,78,216,0.25)] hover:opacity-90 transition"
         >
           {isPlaying ? '⏸ Pause' : '▶ Play'}
         </button>
@@ -89,7 +89,7 @@ export function MusicPlayer() {
           <button
             type="button"
             onClick={toggleMute}
-            className="text-xs font-semibold text-[#d4af37] hover:underline"
+            className="text-xs font-semibold text-[#38BDF8] hover:underline"
           >
             {isMuted || volume === 0 ? '🔇 Muted' : '🔊 Volume'}
           </button>
@@ -100,11 +100,10 @@ export function MusicPlayer() {
             step="0.01"
             value={isMuted ? 0 : volume}
             onChange={(event) => setVolume(Number(event.target.value))}
-            className="w-24 sm:w-32 accent-[#d4af37] cursor-pointer"
+            className="w-24 sm:w-32 accent-[#2563EB] cursor-pointer"
           />
         </div>
       </div>
     </section>
   )
 }
-

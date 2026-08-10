@@ -61,8 +61,8 @@ export function GuestBookSection() {
         transition={{ duration: 0.35 }}
         className="grid grid-cols-3 gap-3 sm:gap-5"
       >
-        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-[rgba(212,175,55,0.22)] bg-[rgba(15,23,42,0.72)] p-3 text-center shadow-[0_12px_30px_rgba(2,8,23,0.3)] backdrop-blur-xl sm:p-5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(212,175,55,0.12)] text-[#d4af37] text-sm sm:text-base">
+        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-[rgba(56,189,248,0.12)] bg-[rgba(8,17,31,0.78)] p-3 text-center shadow-[0_12px_30px_rgba(3,5,8,0.35)] backdrop-blur-xl sm:p-5">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(29,78,216,0.15)] text-[#38BDF8] text-sm sm:text-base">
             <FaMagic />
           </div>
           <span className="mt-2 text-lg font-bold text-[var(--text-primary)] sm:text-2xl lg:text-3xl">
@@ -73,8 +73,8 @@ export function GuestBookSection() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-[rgba(212,175,55,0.22)] bg-[rgba(15,23,42,0.72)] p-3 text-center shadow-[0_12px_30px_rgba(2,8,23,0.3)] backdrop-blur-xl sm:p-5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-500/15 text-rose-400 text-sm sm:text-base">
+        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-[rgba(56,189,248,0.12)] bg-[rgba(8,17,31,0.78)] p-3 text-center shadow-[0_12px_30px_rgba(3,5,8,0.35)] backdrop-blur-xl sm:p-5">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-500/15 text-sky-400 text-sm sm:text-base">
             <FaHeart />
           </div>
           <span className="mt-2 text-lg font-bold text-[var(--text-primary)] sm:text-2xl lg:text-3xl">
@@ -85,8 +85,8 @@ export function GuestBookSection() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-[rgba(212,175,55,0.22)] bg-[rgba(15,23,42,0.72)] p-3 text-center shadow-[0_12px_30px_rgba(2,8,23,0.3)] backdrop-blur-xl sm:p-5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/15 text-[#d4af37] text-sm sm:text-base">
+        <div className="flex flex-col items-center justify-center rounded-[1.6rem] border border-[rgba(56,189,248,0.12)] bg-[rgba(8,17,31,0.78)] p-3 text-center shadow-[0_12px_30px_rgba(3,5,8,0.35)] backdrop-blur-xl sm:p-5">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-500/15 text-[#38BDF8] text-sm sm:text-base">
             <FaCommentDots />
           </div>
           <span className="mt-2 text-lg font-bold text-[var(--text-primary)] sm:text-2xl lg:text-3xl">
@@ -115,13 +115,13 @@ export function GuestBookSection() {
 
       {/* Navigation Tabs */}
       <div className="flex justify-center mt-12 mb-6">
-        <div className="flex items-center gap-2 rounded-2xl border border-[rgba(212,175,55,0.25)] bg-[rgba(6,7,11,0.75)] p-1.5 backdrop-blur-xl">
+        <div className="flex items-center gap-2 rounded-2xl border border-[rgba(56,189,248,0.15)] bg-[rgba(3,5,8,0.75)] p-1.5 backdrop-blur-xl">
           <button
             type="button"
             onClick={() => setActiveTab('wishes')}
             className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold sm:text-sm transition duration-200 ${
               activeTab === 'wishes'
-                ? 'bg-gradient-to-r from-[#d4af37] to-[#b89524] text-[#06070b] shadow-md'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] text-white shadow-md'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
@@ -134,7 +134,7 @@ export function GuestBookSection() {
             onClick={() => setActiveTab('photos')}
             className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold sm:text-sm transition duration-200 ${
               activeTab === 'photos'
-                ? 'bg-gradient-to-r from-[#d4af37] to-[#b89524] text-[#06070b] shadow-md'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] text-white shadow-md'
                 : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >

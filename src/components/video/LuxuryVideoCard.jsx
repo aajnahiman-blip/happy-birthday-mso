@@ -1,14 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-/**
- * LuxuryVideoCard — uses native HTML5 <video> for guaranteed compatibility.
- *
- * react-player v3.x changed its API (url→src, different prop forwarding),
- * making it incompatible with the rest of the codebase. The native <video>
- * element is 100% reliable for local MP4 files, supports all required features
- * (play/pause/seek/controls/mobile/events), and preserves the music sync logic.
- */
 export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
   const videoRef = useRef(null)
   const [hasStarted, setHasStarted] = useState(false)
@@ -74,17 +66,17 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
       transition={{ duration: 0.35 }}
       className={`overflow-hidden rounded-[1.6rem] border transition-all duration-300 ${
         isActive
-          ? 'border-[#d4af37] bg-[rgba(15,23,42,0.92)] shadow-[0_0_30px_rgba(212,175,55,0.25)]'
-          : 'border-[rgba(212,175,55,0.16)] bg-[rgba(15,23,42,0.76)] shadow-[0_24px_70px_rgba(2,8,23,0.25)]'
+          ? 'border-[#1D4ED8] bg-[rgba(8,17,31,0.92)] shadow-[0_0_30px_rgba(29,78,216,0.2)]'
+          : 'border-[rgba(56,189,248,0.08)] bg-[rgba(8,17,31,0.78)] shadow-[0_24px_70px_rgba(3,5,8,0.35)]'
       } backdrop-blur-xl`}
     >
       {/* ── Video area ── */}
       <div className="relative aspect-video overflow-hidden bg-black">
         {error ? (
           /* Error state */
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[rgba(6,7,11,0.9)] text-center p-4">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[rgba(3,5,8,0.9)] text-center p-4">
             <span className="text-2xl">⚠️</span>
-            <p className="text-xs text-[#d4af37] font-bold">Video unavailable</p>
+            <p className="text-xs text-[#2563EB] font-bold">Video unavailable</p>
             <p className="text-[10px] text-[var(--text-secondary)] max-w-xs">{error}</p>
           </div>
         ) : (
@@ -92,7 +84,7 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
             {/* Loading spinner overlay */}
             {isLoading && (
               <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-[rgba(0,0,0,0.4)]">
-                <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#d4af37] border-t-transparent" />
+                <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#38BDF8] border-t-transparent" />
               </div>
             )}
 
@@ -120,13 +112,13 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
       <div className="p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d4af37] font-bold">
+            <p className="text-xs uppercase tracking-[0.3em] text-[#2563EB] font-bold">
               M♡S♡O 💎 Birthday Video
             </p>
             <h3 className="mt-1 text-lg font-semibold text-[var(--text-primary)]">{video.title}</h3>
           </div>
           {video.duration && (
-            <span className="rounded-full border border-[rgba(212,175,55,0.2)] bg-[rgba(28,37,57,0.86)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--text-secondary)]">
+            <span className="rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(17,24,39,0.86)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--text-secondary)]">
               {video.duration}
             </span>
           )}
@@ -141,7 +133,7 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
             <button
               type="button"
               onClick={onPlay}
-              className="rounded-full bg-gradient-to-r from-[#d4af37] to-[#b89524] px-5 py-2 text-xs font-bold text-[#06070b] shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:opacity-90 transition"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-5 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(29,78,216,0.25)] hover:opacity-90 transition"
             >
               ▶ Play Video
             </button>
@@ -149,7 +141,7 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
             <button
               type="button"
               onClick={onPause}
-              className="rounded-full bg-[rgba(212,175,55,0.2)] border border-[#d4af37] px-5 py-2 text-xs font-bold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#06070b] transition"
+              className="rounded-full bg-[rgba(29,78,216,0.15)] border border-[#1D4ED8] px-5 py-2 text-xs font-bold text-[#38BDF8] hover:bg-[#1D4ED8] hover:text-white transition"
             >
               ⏸ Pause
             </button>
@@ -157,7 +149,7 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-[var(--border)] px-4 py-2 text-xs font-semibold text-[var(--text-secondary)] hover:border-[#d4af37] transition"
+            className="rounded-full border border-[var(--border)] px-4 py-2 text-xs font-semibold text-[var(--text-secondary)] hover:border-[#2563EB] transition"
           >
             Close
           </button>

@@ -22,7 +22,6 @@ export function HomePage() {
     link.click()
   }
 
-
   return (
     <PageLayout titleKey="homeTitle" descriptionKey="homeDesc">
       <Helmet>
@@ -41,9 +40,9 @@ export function HomePage() {
           <AnimatedBackground />
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">M♡S♡O 💎 | {t('fullName')}</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">M♡S♡O 💎 | {t('fullName')}</p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl text-[var(--text-primary)]">
-                {language === 'ar' ? 'قصة احتفال عابرة للزمان بكُليّة من الذهَب والوقار.' : 'A birthday story written in gold and grace.'}
+                {language === 'ar' ? 'قصة احتفال عابرة للزمان بكُليّة من الهيبة والوقار.' : 'A birthday story written in elegance and grace.'}
               </h2>
               <p className="mt-4 max-w-xl text-sm leading-8 text-[var(--text-secondary)] sm:text-base">
                 {language === 'ar'
@@ -54,19 +53,19 @@ export function HomePage() {
                 <button
                   type="button"
                   onClick={handleDownload}
-                  className="rounded-full bg-gradient-to-r from-[#d4af37] to-[#b89524] px-5 py-2.5 text-xs font-bold text-[#06070b] shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:opacity-90 transition"
+                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-5 py-2.5 text-xs font-bold text-white shadow-[0_4px_16px_rgba(29,78,216,0.25)] hover:opacity-90 transition"
                 >
                   {t('downloadPhoto')}
                 </button>
                 <Link
                   to="/home/gallery"
-                  className="rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.05)] px-5 py-2.5 text-xs font-semibold text-[var(--text-primary)] hover:border-[#d4af37] transition"
+                  className="rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.05)] px-5 py-2.5 text-xs font-semibold text-[var(--text-primary)] hover:border-[#2563EB] transition"
                 >
                   {t('exploreMemories')}
                 </Link>
                 <Link
                   to="/home/final-surprise"
-                  className="rounded-full border border-[rgba(212,175,55,0.4)] bg-[rgba(212,175,55,0.15)] px-5 py-2.5 text-xs font-bold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#06070b] transition shadow-[0_0_20px_rgba(212,175,55,0.2)]"
+                  className="rounded-full border border-[rgba(29,78,216,0.4)] bg-[rgba(29,78,216,0.15)] px-5 py-2.5 text-xs font-bold text-[#38BDF8] hover:bg-[#1D4ED8] hover:text-white transition shadow-[0_0_20px_rgba(29,78,216,0.15)]"
                 >
                   ✨ {t('finalSurprise')}
                 </Link>
@@ -77,7 +76,7 @@ export function HomePage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.12 }}
-              className="overflow-hidden rounded-[1.8rem] border border-[rgba(212,175,55,0.25)] bg-[var(--surface-muted)] p-3 shadow-lg"
+              className="overflow-hidden rounded-[1.8rem] border border-[rgba(56,189,248,0.15)] bg-[var(--surface-muted)] p-3 shadow-lg"
             >
               <img src={heroPhoto.src} alt={heroPhoto.alt} className="h-72 w-full rounded-[1.2rem] object-cover sm:h-80" />
             </motion.div>
@@ -91,13 +90,13 @@ export function HomePage() {
           transition={{ duration: 0.45, delay: 0.1 }}
           className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md"
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">
             {language === 'ar' ? 'مقولة إهداء' : 'Special Tribute Quote'}
           </p>
           <blockquote className="mt-3 text-xl font-bold leading-9 text-[var(--text-primary)] sm:text-2xl">
             “{quoteContent.text}”
           </blockquote>
-          <p className="mt-3 text-xs text-[#d4af37] font-semibold">{quoteContent.author}</p>
+          <p className="mt-3 text-xs text-[#38BDF8] font-semibold">{quoteContent.author}</p>
         </motion.section>
 
         {/* Featured Photos Section */}
@@ -109,7 +108,7 @@ export function HomePage() {
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">
+              <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">
                 {language === 'ar' ? 'صور مميزة' : 'Featured Photos'}
               </p>
               <h3 className="mt-2 text-2xl font-bold text-[var(--text-primary)]">
@@ -119,7 +118,7 @@ export function HomePage() {
             <button
               type="button"
               onClick={togglePlayback}
-              className="rounded-full border border-[rgba(212,175,55,0.3)] bg-[rgba(212,175,55,0.12)] px-4 py-2 text-xs font-bold text-[#d4af37] hover:bg-[#d4af37] hover:text-[#06070b] transition"
+              className="rounded-full border border-[rgba(29,78,216,0.3)] bg-[rgba(29,78,216,0.12)] px-4 py-2 text-xs font-bold text-[#38BDF8] hover:bg-[#1D4ED8] hover:text-white transition"
             >
               {isPlaying ? t('pauseMusic') : t('playMusic')}
             </button>
@@ -127,7 +126,7 @@ export function HomePage() {
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {featuredPhotos.map((photo) => (
-              <div key={photo.id} className="overflow-hidden rounded-[1.6rem] border border-[rgba(212,175,55,0.2)] bg-[var(--surface-muted)] p-3">
+              <div key={photo.id} className="overflow-hidden rounded-[1.6rem] border border-[rgba(56,189,248,0.12)] bg-[var(--surface-muted)] p-3">
                 <img src={photo.src} alt={photo.alt} className="h-60 w-full rounded-[1.1rem] object-cover sm:h-72" />
                 <div className="mt-3 flex items-center justify-between">
                   <div>
@@ -142,7 +141,7 @@ export function HomePage() {
                       link.download = `mso-${photo.label.toLowerCase().replace(/\s+/g, '-')}.svg`
                       link.click()
                     }}
-                    className="rounded-full border border-[var(--border)] px-3 py-1.5 text-xs font-semibold text-[#d4af37]"
+                    className="rounded-full border border-[var(--border)] px-3 py-1.5 text-xs font-semibold text-[#38BDF8]"
                   >
                     {t('downloadPhoto')}
                   </button>
@@ -159,12 +158,12 @@ export function HomePage() {
           transition={{ duration: 0.45, delay: 0.22 }}
           className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md"
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">
             {language === 'ar' ? 'أحدث الذكريات' : 'Latest Memories'}
           </p>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {latestMemories.map((memory) => (
-              <article key={memory.id} className="overflow-hidden rounded-[1.6rem] border border-[rgba(212,175,55,0.2)] bg-[var(--surface-muted)]">
+              <article key={memory.id} className="overflow-hidden rounded-[1.6rem] border border-[rgba(56,189,248,0.12)] bg-[var(--surface-muted)]">
                 <img src={memory.src} alt={memory.title} className="h-44 w-full object-cover" />
                 <div className="p-4">
                   <h4 className="text-base font-bold text-[var(--text-primary)]">{memory.title}</h4>
@@ -182,14 +181,14 @@ export function HomePage() {
           transition={{ duration: 0.45, delay: 0.28 }}
           className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md"
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">
             {language === 'ar' ? 'الموسيقى الخلفية الاحتفالية' : 'Background Celebration Soundtrack'}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <button
               type="button"
               onClick={togglePlayback}
-              className="rounded-full bg-gradient-to-r from-[#d4af37] to-[#b89524] px-5 py-2 text-xs font-bold text-[#06070b]"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-5 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(29,78,216,0.25)]"
             >
               {isPlaying ? t('pauseMusic') : t('playMusic')}
             </button>
@@ -209,8 +208,8 @@ export function HomePage() {
         transition={{ duration: 0.5 }}
         className="mt-12 text-center my-16 px-4"
       >
-        <div className="mx-auto max-w-4xl rounded-[2.2rem] border border-[rgba(212,175,55,0.35)] bg-[linear-gradient(135deg,rgba(15,23,42,0.92),rgba(6,7,11,0.95))] p-8 shadow-[0_24px_70px_rgba(212,175,55,0.15)] backdrop-blur-xl">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d4af37] font-bold">M♡S♡O 💎</p>
+        <div className="mx-auto max-w-4xl rounded-[2.2rem] border border-[rgba(29,78,216,0.25)] bg-[linear-gradient(135deg,rgba(8,17,31,0.94),rgba(3,5,8,0.97))] p-8 shadow-[0_24px_70px_rgba(29,78,216,0.12)] backdrop-blur-xl">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">M♡S♡O 💎</p>
           <h3 className="mt-3 text-2xl font-bold sm:text-3xl text-[var(--text-primary)]">
             {language === 'ar' ? 'هل أنت مستعد للمفاجأة الختامية؟ ✨' : 'Ready for the Final Birthday Surprise? ✨'}
           </h3>
@@ -222,7 +221,7 @@ export function HomePage() {
           <div className="mt-6">
             <Link
               to="/home/final-surprise"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d4af37] to-[#b89524] px-8 py-3.5 text-sm font-bold text-[#06070b] shadow-[0_4px_24px_rgba(212,175,55,0.4)] hover:scale-105 transition duration-300"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-8 py-3.5 text-sm font-bold text-white shadow-[0_4px_24px_rgba(29,78,216,0.3)] hover:scale-105 transition duration-300"
             >
               <span>✨ {t('finalSurprise')}</span>
             </Link>

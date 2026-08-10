@@ -26,15 +26,15 @@ export function GuestBookForm({
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="relative overflow-hidden rounded-[2.2rem] border border-[rgba(212,175,55,0.28)] bg-[rgba(15,23,42,0.85)] p-6 shadow-[0_24px_70px_rgba(2,8,23,0.45)] backdrop-blur-2xl sm:p-8"
+      className="relative overflow-hidden rounded-[2.2rem] border border-[rgba(56,189,248,0.15)] bg-[rgba(8,17,31,0.85)] p-6 shadow-[0_24px_70px_rgba(3,5,8,0.45)] backdrop-blur-2xl sm:p-8"
     >
       {/* Background ambient radial light */}
-      <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.18)_0%,transparent_70%)] blur-2xl" />
-      <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(20,33,61,0.5)_0%,transparent_70%)] blur-2xl" />
+      <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.15)_0%,transparent_70%)] blur-2xl" />
+      <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(8,17,31,0.5)_0%,transparent_70%)] blur-2xl" />
 
       <div className="relative z-10">
         <div className="flex items-center gap-2">
-          <span className="flex h-8 items-center gap-1.5 rounded-full border border-[rgba(212,175,55,0.3)] bg-[rgba(212,175,55,0.12)] px-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+          <span className="flex h-8 items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.2)] bg-[rgba(29,78,216,0.12)] px-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#38BDF8]">
             <FaMagic className="text-xs" /> M♡S♡O 💎 {t('guestbook')}
           </span>
         </div>
@@ -55,10 +55,10 @@ export function GuestBookForm({
               initial={{ opacity: 0, height: 0, y: -10 }}
               animate={{ opacity: 1, height: 'auto', y: 0 }}
               exit={{ opacity: 0, height: 0, y: -10 }}
-              className="mt-5 overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.4)] bg-gradient-to-r from-[rgba(212,175,55,0.16)] via-[rgba(15,23,42,0.9)] to-[rgba(212,175,55,0.16)] p-4 shadow-[0_10px_30px_rgba(212,175,55,0.25)] backdrop-blur-md"
+              className="mt-5 overflow-hidden rounded-2xl border border-[rgba(56,189,248,0.3)] bg-gradient-to-r from-[rgba(29,78,216,0.16)] via-[rgba(8,17,31,0.9)] to-[rgba(29,78,216,0.16)] p-4 shadow-[0_10px_30px_rgba(29,78,216,0.2)] backdrop-blur-md"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#d4af37] to-[#f5d77f] text-[#06070b] shadow-md">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#1D4ED8] to-[#38BDF8] text-white shadow-md">
                   <FaCheckCircle className="text-xl" />
                 </div>
                 <div>
@@ -76,11 +76,11 @@ export function GuestBookForm({
           {/* Visitor Name Field */}
           <div>
             <label htmlFor="guestbook-name" className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
-              {t('yourName')} <span className="text-[#d4af37]">*</span>
+              {t('yourName')} <span className="text-[#2563EB]">*</span>
             </label>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 ltr:left-0 rtl:right-0 flex items-center ltr:pl-4 rtl:pr-4 text-[var(--text-muted)]">
-                <FaUser className="text-sm text-[#d4af37]" />
+                <FaUser className="text-sm text-[#2563EB]" />
               </div>
               <input
                 id="guestbook-name"
@@ -89,10 +89,10 @@ export function GuestBookForm({
                 onChange={(e) => onNameChange(e.target.value)}
                 placeholder={language === 'ar' ? 'مثال: سارة م. / أبو أحمد' : 'e.g. Sarah M.'}
                 maxLength={60}
-                className={`w-full rounded-2xl border bg-[rgba(6,7,11,0.6)] py-3.5 ltr:pl-11 ltr:pr-4 rtl:pr-11 rtl:pl-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition duration-200 ${
+                className={`w-full rounded-2xl border bg-[rgba(3,5,8,0.6)] py-3.5 ltr:pl-11 ltr:pr-4 rtl:pr-11 rtl:pl-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition duration-200 ${
                   errors.name
                     ? 'border-red-400/80 focus:border-red-400 focus:ring-2 focus:ring-red-400/20'
-                    : 'border-[rgba(212,175,55,0.22)] focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]/25'
+                    : 'border-[rgba(56,189,248,0.15)] focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/25'
                 }`}
               />
             </div>
@@ -107,7 +107,7 @@ export function GuestBookForm({
           <div>
             <div className="mb-2 flex items-center justify-between">
               <label htmlFor="guestbook-message" className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
-                {t('birthdayMessage')} <span className="text-[#d4af37]">*</span>
+                {t('birthdayMessage')} <span className="text-[#2563EB]">*</span>
               </label>
               <span className={`text-xs ${charsRemaining < 50 ? 'text-amber-400 font-semibold' : 'text-[var(--text-muted)]'}`}>
                 {charsRemaining} {language === 'ar' ? 'حرف متبقي' : 'characters left'}
@@ -128,10 +128,10 @@ export function GuestBookForm({
                     ? 'اكتب أمنياتك ودعواتك الصادقة لمحمد سفيان بمناسبة عيد ميلاده...'
                     : 'Write your heartfelt birthday wishes, blessings, or favorite memories...'
                 }
-                className={`w-full rounded-2xl border bg-[rgba(6,7,11,0.6)] p-4 text-sm leading-relaxed text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition duration-200 ${
+                className={`w-full rounded-2xl border bg-[rgba(3,5,8,0.6)] p-4 text-sm leading-relaxed text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition duration-200 ${
                   errors.message
                     ? 'border-red-400/80 focus:border-red-400 focus:ring-2 focus:ring-red-400/20'
-                    : 'border-[rgba(212,175,55,0.22)] focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]/25'
+                    : 'border-[rgba(56,189,248,0.15)] focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/25'
                 }`}
               />
             </div>
@@ -145,7 +145,7 @@ export function GuestBookForm({
           {/* Quick Emoji Bar */}
           <div>
             <div className="mb-2 flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)]">
-              <FaRegSmile className="text-[#d4af37]" /> {language === 'ar' ? 'رموز سريعة (اضغط للإضافة):' : 'Quick Emojis (tap to add):'}
+              <FaRegSmile className="text-[#2563EB]" /> {language === 'ar' ? 'رموز سريعة (اضغط للإضافة):' : 'Quick Emojis (tap to add):'}
             </div>
             <div className="flex flex-wrap gap-2">
               {QUICK_EMOJIS.map((emoji) => (
@@ -155,8 +155,8 @@ export function GuestBookForm({
                   onClick={() => onAppendEmoji(emoji)}
                   className={`flex h-9 w-9 items-center justify-center rounded-xl border text-base transition-all duration-200 ${
                     selectedEmoji === emoji
-                      ? 'border-[#d4af37] bg-[rgba(212,175,55,0.2)] shadow-[0_0_12px_rgba(212,175,55,0.3)]'
-                      : 'border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:border-[rgba(212,175,55,0.4)] hover:bg-[rgba(212,175,55,0.1)]'
+                      ? 'border-[#2563EB] bg-[rgba(29,78,216,0.2)] shadow-[0_0_12px_rgba(29,78,216,0.3)]'
+                      : 'border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:border-[rgba(56,189,248,0.3)] hover:bg-[rgba(29,78,216,0.1)]'
                   }`}
                 >
                   {emoji}
@@ -179,11 +179,11 @@ export function GuestBookForm({
               disabled={isSubmitting}
               whileHover={{ scale: 1.015 }}
               whileTap={{ scale: 0.985 }}
-              className="relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-[#d4af37] via-[#f5d77f] to-[#d4af37] px-6 py-4 text-sm font-semibold text-[#06070b] shadow-[0_8px_30px_rgba(212,175,55,0.3)] transition duration-300 hover:shadow-[0_12px_36px_rgba(212,175,55,0.45)] disabled:opacity-60"
+              className="relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-[#1D4ED8] via-[#2563EB] to-[#1D4ED8] px-6 py-4 text-sm font-semibold text-white shadow-[0_8px_30px_rgba(29,78,216,0.3)] transition duration-300 hover:shadow-[0_12px_36px_rgba(29,78,216,0.45)] disabled:opacity-60"
             >
               {isSubmitting ? (
                 <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#06070b] border-t-transparent" />
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
                   <span>{language === 'ar' ? 'جاري نشر التهنئة…' : 'Publishing Wish…'}</span>
                 </>
               ) : (

@@ -14,11 +14,11 @@ export function PageLayout({ children, title, description, titleKey, description
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="relative overflow-hidden rounded-[1.8rem] border border-[var(--border)] bg-[rgba(15,23,42,0.78)] p-6 shadow-[0_24px_70px_rgba(2,8,23,0.38)] backdrop-blur-xl"
+          className="relative overflow-hidden rounded-[1.8rem] border border-[var(--border)] bg-[rgba(8,17,31,0.82)] p-6 shadow-[0_24px_70px_rgba(3,5,8,0.45)] backdrop-blur-xl"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.14),transparent_40%),linear-gradient(135deg,rgba(255,255,255,0.03),transparent)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(29,78,216,0.08),transparent_40%),linear-gradient(135deg,rgba(255,255,255,0.02),transparent)]" />
           <div className="relative z-10">
-            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#d4af37]">M♡S♡O 💎 | {t('fullName')}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#2563EB]">M♡S♡O 💎 | {t('fullName')}</p>
             <h1 className="mt-2 text-2xl font-bold sm:text-3xl text-[var(--text-primary)]">{displayTitle}</h1>
             <p className="mt-2.5 max-w-2xl text-xs leading-6 text-[var(--text-secondary)] sm:text-sm">
               {displayDescription}

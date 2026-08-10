@@ -18,10 +18,10 @@ export function LuxuryLetter({ letter }) {
         <motion.div
           animate={{ rotateX: isOpen ? -12 : 0, rotateZ: isOpen ? -4 : 0, y: isOpen ? -6 : 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-[1.8rem] border border-[rgba(212,175,55,0.24)] bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(28,37,57,0.84))] p-3 shadow-[0_24px_70px_rgba(2,8,23,0.3)]"
+          className="relative rounded-[1.8rem] border border-[rgba(56,189,248,0.1)] bg-[linear-gradient(135deg,rgba(8,17,31,0.96),rgba(17,24,39,0.86))] p-3 shadow-[0_24px_70px_rgba(3,5,8,0.3)]"
         >
-          <div className="relative overflow-hidden rounded-[1.3rem] border border-[rgba(212,175,55,0.16)] bg-[rgba(248,248,248,0.06)] p-4 sm:p-6">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.16),transparent_35%)]" />
+          <div className="relative overflow-hidden rounded-[1.3rem] border border-[rgba(29,78,216,0.08)] bg-[rgba(248,248,248,0.06)] p-4 sm:p-6">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(29,78,216,0.08),transparent_35%)]" />
 
             <div className="relative z-10">
               <div className="mb-5 flex items-center justify-between gap-3">
@@ -29,12 +29,12 @@ export function LuxuryLetter({ letter }) {
                   <p className="text-xs uppercase tracking-[0.35em] text-[var(--text-muted)]">Love Letter | رسالة حب</p>
                   <h3 className="mt-2 text-xl font-semibold text-[var(--text-primary)]">{letter.title}</h3>
                 </div>
-                <span className="rounded-full border border-[rgba(212,175,55,0.2)] bg-[rgba(28,37,57,0.86)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--text-secondary)]">
+                <span className="rounded-full border border-[rgba(56,189,248,0.1)] bg-[rgba(17,24,39,0.88)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                   {letter.date}
                 </span>
               </div>
 
-              <div className="relative overflow-hidden rounded-[1.2rem] border border-[rgba(212,175,55,0.14)] bg-[rgba(248,248,248,0.95)] p-4 text-[#14213d] shadow-inner sm:p-6">
+              <div className="relative overflow-hidden rounded-[1.2rem] border border-[rgba(8,17,31,0.1)] bg-[rgba(248,248,248,0.95)] p-4 text-[#08111F] shadow-inner sm:p-6">
                 <AnimatePresence mode="wait">
                   {!isOpen ? (
                     <motion.div
@@ -44,10 +44,10 @@ export function LuxuryLetter({ letter }) {
                       exit={{ opacity: 0 }}
                       className="flex min-h-[220px] flex-col justify-center"
                     >
-                      <div className="mx-auto flex w-full max-w-[360px] flex-col items-center rounded-[1.2rem] border border-[rgba(20,33,61,0.12)] bg-[linear-gradient(135deg,rgba(248,248,248,0.98),rgba(224,232,245,0.95))] p-6 text-center shadow-[0_12px_32px_rgba(20,33,61,0.08)]">
-                        <div className="mb-4 h-12 w-24 rounded-full border border-[rgba(212,175,55,0.3)]" />
-                        <p className="text-sm uppercase tracking-[0.35em] text-[#3a506b]">Open the envelope</p>
-                        <p className="mt-3 text-sm leading-7 text-[#14213d]">Tap to reveal a private note written with care.</p>
+                      <div className="mx-auto flex w-full max-w-[360px] flex-col items-center rounded-[1.2rem] border border-[rgba(8,17,31,0.1)] bg-[linear-gradient(135deg,rgba(248,248,248,0.98),rgba(224,232,245,0.95))] p-6 text-center shadow-[0_12px_32px_rgba(8,17,31,0.06)]">
+                        <div className="mb-4 h-12 w-24 rounded-full border border-[rgba(56,189,248,0.12)]" />
+                        <p className="text-sm uppercase tracking-[0.35em] text-[#94A3B8]">Open the envelope</p>
+                        <p className="mt-3 text-sm leading-7 text-[#08111F]">Tap to reveal a private note written with care.</p>
                       </div>
                     </motion.div>
                   ) : (
@@ -62,7 +62,7 @@ export function LuxuryLetter({ letter }) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.15, duration: 0.4 }}
-                        className="font-['Cormorant_Garamond'] text-[1.05rem] leading-8 text-[#14213d] sm:text-[1.15rem]"
+                        className="font-['Cormorant_Garamond'] text-[1.05rem] leading-8 text-[#08111F] sm:text-[1.15rem]"
                       >
                         {letter.message}
                       </motion.p>
@@ -70,7 +70,7 @@ export function LuxuryLetter({ letter }) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.4 }}
-                        className="mt-6 text-sm uppercase tracking-[0.3em] text-[#3a506b]"
+                        className="mt-6 text-sm uppercase tracking-[0.3em] text-[#94A3B8]"
                       >
                         {letter.signature}
                       </motion.p>

@@ -12,8 +12,7 @@ import { useMusic } from '../contexts/MusicContext'
 
 /* ─── Fireworks cannon ──────────────────────────────────────────────────── */
 function launchFireworks() {
-  const count = 6
-  const colors = ['#d4af37', '#f5d77f', '#ffffff', '#ff6b9d', '#c084fc']
+  const colors = ['#1D4ED8', '#38BDF8', '#ffffff', '#67E8F9', '#CBD5E1', '#d4af37']
 
   // starburst from centre
   confetti({
@@ -55,11 +54,11 @@ function launchFireworks() {
   })
 }
 
-/* ─── Sustained golden rain ─────────────────────────────────────────────── */
+/* ─── Sustained golden/cyan rain ─────────────────────────────────────────────── */
 function launchGoldenRain() {
   const duration = 5000
   const animationEnd = Date.now() + duration
-  const colors = ['#d4af37', '#f5d77f', '#ffffff', '#14213d', '#e2e8f0']
+  const colors = ['#1D4ED8', '#38BDF8', '#ffffff', '#0B1730', '#F8FAFC', '#d4af37']
 
   const interval = setInterval(() => {
     const timeLeft = animationEnd - Date.now()
@@ -109,14 +108,14 @@ export function FinalSurprisePage() {
     // Start music
     playMusic()
 
-    // Cinematic golden light flash
+    // Cinematic royal blue/cyan light flash
     setShowGoldenFlash(true)
     setTimeout(() => setShowGoldenFlash(false), 1800)
 
     // Immediate fireworks burst
     launchFireworks()
 
-    // Sustained golden confetti rain
+    // Sustained confetti rain
     launchGoldenRain()
   }, [playMusic])
 
@@ -127,7 +126,7 @@ export function FinalSurprisePage() {
       particleCount: 100,
       spread: 120,
       origin: { y: 0.6 },
-      colors: ['#d4af37', '#f5d77f', '#ffffff', '#ff6b9d'],
+      colors: ['#1D4ED8', '#38BDF8', '#ffffff', '#67E8F9', '#d4af37'],
       shapes: ['star', 'circle'],
       zIndex: 9999,
     })
@@ -153,7 +152,7 @@ export function FinalSurprisePage() {
         />
       </Helmet>
 
-      {/* ── Cinematic golden flash overlay ── */}
+      {/* ── Cinematic royal blue/cyan light flash overlay ── */}
       <AnimatePresence>
         {showGoldenFlash && (
           <motion.div
@@ -165,7 +164,7 @@ export function FinalSurprisePage() {
             className="pointer-events-none fixed inset-0 z-[9998]"
             style={{
               background:
-                'radial-gradient(ellipse at center, rgba(212,175,55,0.75) 0%, rgba(245,215,127,0.4) 40%, transparent 75%)',
+                'radial-gradient(ellipse at center, rgba(29,78,216,0.5) 0%, rgba(56,189,248,0.25) 40%, transparent 75%)',
             }}
           />
         )}
@@ -184,7 +183,7 @@ export function FinalSurprisePage() {
           className="relative text-center"
         >
           {/* Brand pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(212,175,55,0.35)] bg-[rgba(212,175,55,0.12)] px-5 py-1.5 text-xs font-bold tracking-widest text-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(56,189,248,0.2)] bg-[rgba(29,78,216,0.12)] px-5 py-1.5 text-xs font-bold tracking-widest text-[#38BDF8] shadow-[0_0_20px_rgba(29,78,216,0.15)]">
             <FaGem className="text-[10px]" />
             <span>M♡S♡O 💎 | {t('fullName')}</span>
             <FaGem className="text-[10px]" />
@@ -199,14 +198,14 @@ export function FinalSurprisePage() {
             {language === 'ar' ? (
               <>
                 كل عام وأنت{' '}
-                <span className="bg-gradient-to-r from-[#d4af37] via-[#f5d77f] to-[#d4af37] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1D4ED8] via-[#38BDF8] to-[#1D4ED8] bg-clip-text text-transparent">
                   M♡S♡O 💎
                 </span>
               </>
             ) : (
               <>
                 Happy Birthday{' '}
-                <span className="bg-gradient-to-r from-[#d4af37] via-[#f5d77f] to-[#d4af37] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1D4ED8] via-[#38BDF8] to-[#1D4ED8] bg-clip-text text-transparent">
                   M♡S♡O 💎
                 </span>
               </>
@@ -222,9 +221,9 @@ export function FinalSurprisePage() {
 
           {/* Decorative ornament */}
           <div className="mx-auto mt-5 flex items-center gap-3 justify-center">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#d4af37]" />
-            <FaCrown className="text-sm text-[#d4af37]" />
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#d4af37]" />
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#2563EB]" />
+            <FaCrown className="text-sm text-[#2563EB]" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#2563EB]" />
           </div>
         </motion.section>
 
@@ -233,11 +232,11 @@ export function FinalSurprisePage() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.55, delay: 0.18 }}
-          className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(212,175,55,0.25)] bg-[rgba(12,18,38,0.88)] p-6 shadow-[0_24px_70px_rgba(2,8,23,0.45)] backdrop-blur-xl sm:p-10"
+          className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(56,189,248,0.15)] bg-[rgba(8,17,31,0.88)] p-6 shadow-[0_24px_70px_rgba(3,5,8,0.45)] backdrop-blur-xl sm:p-10"
         >
           {/* Ambient corner glows */}
-          <div className="pointer-events-none absolute -top-12 -left-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.18),transparent_70%)]" />
-          <div className="pointer-events-none absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.12),transparent_70%)]" />
+          <div className="pointer-events-none absolute -top-12 -left-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.15),transparent_70%)]" />
+          <div className="pointer-events-none absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.1),transparent_70%)]" />
 
           <LuxuryCake isBlown={isBlown} onBlowCandles={triggerCelebration} />
         </motion.section>
@@ -258,7 +257,7 @@ export function FinalSurprisePage() {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(212,175,55,0.45)] bg-[rgba(212,175,55,0.15)] px-5 py-2 text-sm font-bold tracking-wide text-[#d4af37]"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(56,189,248,0.25)] bg-[rgba(29,78,216,0.15)] px-5 py-2 text-sm font-bold tracking-wide text-[#38BDF8]"
               >
                 <FaMagic className="text-xs" />
                 <span>{language === 'ar' ? 'تمت إضاءة أمنياتك ✨' : 'Your wish has been cast ✨'}</span>
@@ -271,18 +270,18 @@ export function FinalSurprisePage() {
                   whileHover={{ scale: 1.04, y: -4 }}
                   whileTap={{ scale: 0.96 }}
                   onClick={handleGiftClick}
-                  className="cursor-pointer inline-flex flex-col items-center p-8 rounded-[2rem] border border-[rgba(212,175,55,0.4)] bg-[linear-gradient(135deg,rgba(12,18,38,0.92),rgba(6,7,11,0.96))] shadow-[0_0_55px_rgba(212,175,55,0.28)] backdrop-blur-xl"
+                  className="cursor-pointer inline-flex flex-col items-center p-8 rounded-[2rem] border border-[rgba(56,189,248,0.2)] bg-[linear-gradient(135deg,rgba(8,17,31,0.92),rgba(3,5,8,0.96))] shadow-[0_0_55px_rgba(29,78,216,0.2)] backdrop-blur-xl"
                 >
                   {/* Wobbling gift icon */}
                   <motion.div
                     animate={{ rotate: [0, -6, 6, -4, 0] }}
                     transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-                    className="h-20 w-20 flex items-center justify-center rounded-2xl bg-gradient-to-tr from-[#d4af37] to-[#f5d77f] text-[#06070b] shadow-[0_12px_35px_rgba(212,175,55,0.45)]"
+                    className="h-20 w-20 flex items-center justify-center rounded-2xl bg-gradient-to-tr from-[#1D4ED8] to-[#38BDF8] text-white shadow-[0_12px_35px_rgba(29,78,216,0.35)]"
                   >
                     <FaGift className="text-4xl" />
                   </motion.div>
 
-                  <p className="mt-4 text-sm font-bold text-[#d4af37]">
+                  <p className="mt-4 text-sm font-bold text-[#38BDF8]">
                     {language === 'ar'
                       ? 'انقر لفتح الهدية الختامية 💝'
                       : 'Tap to open your final gift 💝'}
@@ -299,11 +298,11 @@ export function FinalSurprisePage() {
                   initial={{ opacity: 0, scale: 0.88, y: 30 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(212,175,55,0.38)] bg-[linear-gradient(135deg,rgba(6,7,11,0.97),rgba(14,22,50,0.92))] p-7 shadow-[0_30px_90px_rgba(212,175,55,0.28)] backdrop-blur-2xl sm:p-12 text-start"
+                  className="relative overflow-hidden rounded-[2.4rem] border border-[rgba(56,189,248,0.2)] bg-[linear-gradient(135deg,rgba(3,5,8,0.97),rgba(8,17,31,0.92))] p-7 shadow-[0_30px_90px_rgba(29,78,216,0.2)] backdrop-blur-2xl sm:p-12 text-start"
                 >
-                  {/* Corner gold glows */}
-                  <div className="pointer-events-none absolute top-0 end-0 h-64 w-64 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.28),transparent_65%)]" />
-                  <div className="pointer-events-none absolute bottom-0 start-0 h-48 w-48 bg-[radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.15),transparent_70%)]" />
+                  {/* Corner blue glows */}
+                  <div className="pointer-events-none absolute top-0 end-0 h-64 w-64 bg-[radial-gradient(circle_at_top_right,rgba(29,78,216,0.2),transparent_65%)]" />
+                  <div className="pointer-events-none absolute bottom-0 start-0 h-48 w-48 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.12),transparent_70%)]" />
 
                   <div className="relative z-10 max-w-3xl mx-auto space-y-7">
                     {/* Heart icon */}
@@ -311,9 +310,9 @@ export function FinalSurprisePage() {
                       <motion.div
                         animate={{ scale: [1, 1.12, 1] }}
                         transition={{ duration: 1.4, repeat: Infinity }}
-                        className="h-16 w-16 flex items-center justify-center rounded-full border-2 border-[rgba(212,175,55,0.5)] bg-[rgba(212,175,55,0.15)] shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+                        className="h-16 w-16 flex items-center justify-center rounded-full border-2 border-[rgba(56,189,248,0.3)] bg-[rgba(29,78,216,0.15)] shadow-[0_0_30px_rgba(29,78,216,0.25)]"
                       >
-                        <FaHeart className="text-2xl text-rose-400" />
+                        <FaHeart className="text-2xl text-sky-400" />
                       </motion.div>
                     </div>
 
@@ -322,19 +321,19 @@ export function FinalSurprisePage() {
                       {t('finalMessageTitle')}
                     </h2>
 
-                    {/* Gold divider */}
+                    {/* Blue divider */}
                     <div className="flex items-center gap-3 justify-center">
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-60" />
-                      <FaGem className="text-[#d4af37] text-xs opacity-80" />
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent opacity-60" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-60" />
+                      <FaGem className="text-[#38BDF8] text-xs opacity-80" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-60" />
                     </div>
 
                     {/* Arabic romantic message body */}
-                    <div className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[rgba(255,255,255,0.04)] p-6 shadow-inner sm:p-9">
+                    <div className="rounded-2xl border border-[rgba(56,189,248,0.15)] bg-[rgba(255,255,255,0.03)] p-6 shadow-inner sm:p-9">
                       {language === 'ar' ? (
                         <p className="text-base sm:text-lg leading-[2.1] text-[var(--text-secondary)] font-medium text-center" dir="rtl">
                           «&nbsp;إلى حبيبي الغالي على قلبي&nbsp;
-                          <span className="text-[#f5d77f] font-bold">محمد سفيان</span>
+                          <span className="text-[#38BDF8] font-bold">محمد سفيان</span>
                           &nbsp;…<br />
                           كل لحظة في حياتي تصبح أجمل لأنّك فيها.
                           أنت الشخص الذي يجعل الدنيا تبدو مكاناً يستحق الابتسام،
@@ -354,7 +353,7 @@ export function FinalSurprisePage() {
 
                     {/* Closing signature */}
                     <div className="pt-1 flex flex-col items-center gap-2">
-                      <p className="text-xs uppercase tracking-[0.4em] text-[#d4af37] font-bold opacity-90">
+                      <p className="text-xs uppercase tracking-[0.4em] text-[#38BDF8] font-bold opacity-90">
                         {language === 'ar' ? 'من قلبي إلى حبيبي' : 'From my heart to my love'}
                       </p>
                       <motion.p
@@ -363,7 +362,7 @@ export function FinalSurprisePage() {
                         className="text-2xl font-extrabold text-[var(--text-primary)] tracking-wide"
                       >
                         محمد سفيان |{' '}
-                        <span className="bg-gradient-to-r from-[#d4af37] via-[#f5d77f] to-[#d4af37] bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-[#1D4ED8] via-[#38BDF8] to-[#1D4ED8] bg-clip-text text-transparent">
                           M♡S♡O 💎
                         </span>
                       </motion.p>

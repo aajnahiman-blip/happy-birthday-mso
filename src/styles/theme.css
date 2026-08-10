@@ -1,14 +1,14 @@
 :root {
-  --app-bg: #06070b;
-  --surface: rgba(15, 23, 42, 0.82);
-  --surface-muted: rgba(28, 37, 57, 0.76);
-  --text-primary: #f8f8f8;
-  --text-secondary: #c0c0c0;
-  --text-muted: #8ea0b8;
-  --border: rgba(212, 175, 55, 0.24);
-  --accent: #7fa3e1;
-  --accent-soft: rgba(20, 33, 61, 0.9);
-  --shadow: 0 24px 70px rgba(2, 8, 23, 0.42);
+  --app-bg: #030508;
+  --surface: rgba(8, 17, 31, 0.85);
+  --surface-muted: rgba(17, 24, 39, 0.78);
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --border: rgba(56, 189, 248, 0.12);
+  --accent: #2563EB;
+  --accent-soft: rgba(8, 17, 31, 0.9);
+  --shadow: 0 24px 70px rgba(3, 5, 8, 0.55);
 }
 
 html {
@@ -20,8 +20,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(20, 33, 61, 0.55), transparent 36%),
-    linear-gradient(135deg, #06070b 0%, #0b0b0b 44%, #101827 100%);
+    radial-gradient(circle at top left, rgba(29, 78, 216, 0.12), transparent 36%),
+    linear-gradient(135deg, #030508 0%, #060A0F 44%, #08111F 100%);
   color: var(--text-primary);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;

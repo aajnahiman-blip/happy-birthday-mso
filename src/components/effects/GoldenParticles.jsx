@@ -47,16 +47,16 @@ export function GoldenParticles({ count = 30, isBlown = false }) {
           className="flex items-center justify-center select-none"
         >
           {p.type === 'heart' ? (
-            <span className="text-rose-400 text-sm drop-shadow-[0_0_8px_rgba(244,63,94,0.6)]">♥</span>
+            <span className="text-sky-400 text-sm drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">♥</span>
           ) : p.type === 'balloon' ? (
-            <span className="text-amber-400 text-base drop-shadow-[0_0_10px_rgba(212,175,55,0.7)]">🎈</span>
+            <span className="text-sky-300 text-base drop-shadow-[0_0_10px_rgba(29,78,216,0.6)]">🎈</span>
           ) : p.type === 'rose' ? (
-            <span className="text-rose-300 text-sm opacity-90 drop-shadow-[0_0_6px_rgba(244,114,182,0.5)]">🌹</span>
+            <span className="text-sky-200 text-sm opacity-90 drop-shadow-[0_0_6px_rgba(56,189,248,0.4)]">✦</span>
           ) : p.type === 'sparkle' ? (
-            <span className="text-[#f5d77f] text-xs drop-shadow-[0_0_10px_#d4af37]">✨</span>
+            <span className="text-[#67E8F9] text-xs drop-shadow-[0_0_10px_#1D4ED8]">✨</span>
           ) : (
             <div
-              className="rounded-full bg-gradient-to-r from-[#d4af37] to-[#f5d77f] shadow-[0_0_10px_#d4af37]"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#38BDF8] shadow-[0_0_10px_#1D4ED8]"
               style={{ width: `${p.size}px`, height: `${p.size}px` }}
             />
           )}
@@ -65,4 +65,3 @@ export function GoldenParticles({ count = 30, isBlown = false }) {
     </div>
   )
 }
-
