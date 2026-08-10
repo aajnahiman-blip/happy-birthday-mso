@@ -5,7 +5,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-01.jpg",
     "url": "/media/videos/vid-01.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-2",
@@ -13,7 +13,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-02.mp4",
     "url": "/media/videos/vid-02.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-3",
@@ -21,7 +21,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-03.gif",
     "url": "/media/videos/vid-03.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-4",
@@ -29,7 +29,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-04.gif",
     "url": "/media/videos/vid-04.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-5",
@@ -37,7 +37,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-05.jpg",
     "url": "/media/videos/vid-05.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-6",
@@ -45,7 +45,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-06.jpg",
     "url": "/media/videos/vid-06.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-7",
@@ -53,7 +53,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-07.jpg",
     "url": "/media/videos/vid-07.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-8",
@@ -61,7 +61,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-08.jpg",
     "url": "/media/videos/vid-08.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-9",
@@ -69,7 +69,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-09.jpg",
     "url": "/media/videos/vid-09.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-10",
@@ -77,7 +77,7 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-10.jpg",
     "url": "/media/videos/vid-10.mp4",
-    "duration": "01:30"
+    "duration": ""
   },
   {
     "id": "video-11",
@@ -85,6 +85,6 @@ export const birthdayVideos = [
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-11.mp4",
     "url": "/media/videos/vid-11.mp4",
-    "duration": "01:30"
+    "duration": ""
   }
 ]

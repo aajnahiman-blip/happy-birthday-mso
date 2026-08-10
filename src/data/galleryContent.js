@@ -1,7 +1,7 @@
 export const memoriesGallery = [
   {
     "id": "memory-1",
-    "title": "ذكرياتنا الجميلة - 1",
+    "title": "ذكرياتنا الجميلة ",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
     "src": "/media/memories/memory-01.jpg",
     "category": "ذكرياتنا",
@@ -9,7 +9,7 @@ export const memoriesGallery = [
   },
   {
     "id": "memory-2",
-    "title": "ذكرياتنا الجميلة - 2",
+    "title": "ذكرياتنا الجميلة ",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
     "src": "/media/memories/memory-02.jpg",
     "category": "ذكرياتنا",
@@ -67,7 +67,7 @@ export const memoriesGallery = [
     "id": "memory-9",
     "title": "ذكرياتنا الجميلة - 9",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
-    "src": "/media/memories/memory-09.mp4",
+    "src": "/media/memories/memory-09.jpg",
     "category": "ذكرياتنا",
     "aspect": "square"
   },
@@ -99,7 +99,7 @@ export const memoriesGallery = [
     "id": "memory-13",
     "title": "ذكرياتنا الجميلة - 13",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
-    "src": "/media/memories/memory-13.mp4",
+    "src": "/media/memories/memory-13.jpg",
     "category": "ذكرياتنا",
     "aspect": "portrait"
   },
@@ -107,7 +107,7 @@ export const memoriesGallery = [
     "id": "memory-14",
     "title": "ذكرياتنا الجميلة - 14",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
-    "src": "/media/memories/memory-14.mp4",
+    "src": "/media/memories/memory-14.jpg",
     "category": "ذكرياتنا",
     "aspect": "landscape"
   },
@@ -478,7 +478,7 @@ export const photoGallery = [
     "id": "photo-2",
     "title": "قصتنا معاً - 2",
     "description": "إطلالة ساحرة وصورة توثق أجمل اللحظات التي تجمعنا معاً.",
-    "src": "/media/our-photos/our-photo-02.mp4",
+    "src": "/media/our-photos/our-photo-13.jpg",
     "category": "صورنا",
     "aspect": "landscape"
   },
@@ -550,7 +550,7 @@ export const photoGallery = [
     "id": "photo-11",
     "title": "قصتنا معاً - 11",
     "description": "إطلالة ساحرة وصورة توثق أجمل اللحظات التي تجمعنا معاً.",
-    "src": "/media/our-photos/our-photo-11.mp4",
+    "src": "/media/our-photos/our-photo-45.mp4",
     "category": "صورنا",
     "aspect": "landscape"
   },

@@ -1,7 +1,7 @@
 export const galleryItems = [
   {
     "id": "memory-1",
-    "title": "ذكرياتنا الجميلة - 1",
+    "title": "ذكرياتنا الجميلة ",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
     "src": "/media/memories/memory-01.jpg",
     "category": "ذكرياتنا",
@@ -9,7 +9,7 @@ export const galleryItems = [
   },
   {
     "id": "memory-2",
-    "title": "ذكرياتنا الجميلة - 2",
+    "title": "ذكرياتنا الجميلة",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
     "src": "/media/memories/memory-02.jpg",
     "category": "ذكرياتنا",
@@ -17,7 +17,7 @@ export const galleryItems = [
   },
   {
     "id": "memory-3",
-    "title": "ذكرياتنا الجميلة - 3",
+    "title": "ذكرياتنا الجميلة ",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
     "src": "/media/memories/memory-03.jpg",
     "category": "ذكرياتنا",
@@ -25,7 +25,7 @@ export const galleryItems = [
   },
   {
     "id": "memory-4",
-    "title": "ذكرياتنا الجميلة - 4",
+    "title": "ذكرياتنا الجميلة ",
     "description": "لحظة دافئة ملتقطة بكل حب وشغف برفقة حبيبي M♡S♡O 💎.",
     "src": "/media/memories/memory-04.jpg",
     "category": "ذكرياتنا",
@@ -36,7 +36,7 @@ export const galleryItems = [
 export const videoItems = [
   {
     "id": "video-1",
-    "title": "فيديو عيد الميلاد السينمائي 1",
+    "title": "فيديو عيد الميلاد السينمائي",
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-01.jpg",
     "url": "/media/videos/vid-01.mp4",
@@ -44,7 +44,7 @@ export const videoItems = [
   },
   {
     "id": "video-2",
-    "title": "فيديو عيد الميلاد السينمائي 2",
+    "title": "فيديو عيد الميلاد السينمائي ",
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-02.mp4",
     "url": "/media/videos/vid-02.mp4",
@@ -52,7 +52,7 @@ export const videoItems = [
   },
   {
     "id": "video-3",
-    "title": "فيديو عيد الميلاد السينمائي 3",
+    "title": "فيديو عيد الميلاد السينمائي ",
     "description": "عرض احتفالي مميز وموثق بأجمل المشاعر والأوقات السعيدة لحبيبي محمد سفيان M♡S♡O 💎.",
     "poster": "/media/our-photos/our-photo-03.gif",
     "url": "/media/videos/vid-03.mp4",

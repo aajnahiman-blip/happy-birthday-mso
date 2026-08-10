@@ -9,7 +9,7 @@ export const luxuryMemoryBookPages = [
     "id": "memory-book-2",
     "title": "صفحة من قصتنا - 2",
     "memory": "كل لحظة نقضيها معاً تجعل من الحياة رحلة مليئة بالدفء، والجمال، والحب المستمر مع حبيبي محمد سفيان M♡S♡O 💎.",
-    "image": "/media/our-photos/our-photo-02.mp4"
+    "image": "/media/our-photos/our-photo-02.jpg"
   },
   {
     "id": "memory-book-3",
@@ -63,7 +63,7 @@ export const luxuryMemoryBookPages = [
     "id": "memory-book-11",
     "title": "صفحة من قصتنا - 11",
     "memory": "كل لحظة نقضيها معاً تجعل من الحياة رحلة مليئة بالدفء، والجمال، والحب المستمر مع حبيبي محمد سفيان M♡S♡O 💎.",
-    "image": "/media/our-photos/our-photo-11.mp4"
+    "image": "/media/our-photos/our-photo-16.jpg"
   },
   {
     "id": "memory-book-12",

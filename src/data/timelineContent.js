@@ -4,7 +4,7 @@ export const graduationMilestones = [
     "title": "بداية الشغف والاجتهاد",
     "story": "مسيرة حافلة بالإصرار والعمل الدؤوب توجت بأجمل لحظات النجاح والتفوق لحبيبي محمد سفيان M♡S♡O 💎.",
     "date": "محطة 1",
-    "image": "/media/graduation/graduation-01.jpg"
+    "image": "/media/graduation/graduation-10.jpg"
   },
   {
     "id": "grad-2",
@@ -67,7 +67,7 @@ export const graduationMilestones = [
     "title": "محطة الإنجاز والتميز 10",
     "story": "مسيرة حافلة بالإصرار والعمل الدؤوب توجت بأجمل لحظات النجاح والتفوق لحبيبي محمد سفيان M♡S♡O 💎.",
     "date": "محطة 10",
-    "image": "/media/graduation/graduation-10.jpg"
+    "image": "/media/graduation/graduation-01.jpg"
   },
   {
     "id": "grad-11",
