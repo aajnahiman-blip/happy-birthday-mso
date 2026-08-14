@@ -1,24 +1,9 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { FaComment, FaHeart, FaPaperPlane, FaRegComment, FaRegHeart, FaRegImage } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import { FaComment, FaHeart, FaRegImage } from 'react-icons/fa'
 import { useLanguage } from '../../contexts/LanguageContext'
 
-export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment }) {
+export function MemoryInteractions({ photos, loading }) {
   const { t, language } = useLanguage()
-  const [activePhotoComments, setActivePhotoComments] = useState(null)
-  const [authorName, setAuthorName] = useState('')
-  const [commentText, setCommentText] = useState('')
-
-  const handleCommentSubmit = async (e, photoId) => {
-    e.preventDefault()
-    if (!commentText.trim()) return
-
-    await onAddComment(photoId, {
-      author: authorName.trim() || t('visitorName'),
-      text: commentText.trim(),
-    })
-    setCommentText('')
-  }
 
   return (
     <section className="space-y-6">
@@ -32,8 +17,8 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
             <h3 className="text-xl font-bold text-[var(--text-primary)]">{t('photoInteractions')}</h3>
             <p className="mt-0.5 text-xs text-[var(--text-secondary)] sm:text-sm">
               {language === 'fr'
-                ? 'Affichez votre affection ! Aimez et commentez directement sur les photos et souvenirs de Mohamed Soufiane M♡S♡O.'
-                : 'أظهر محبتك! أعجب وعلق مباشرة على الصور والذكريات المميزة لمحمد سفيان M♡S♡O.'}
+                ? 'Photos et souvenirs précieux de Mohamed Soufiane M♡S♡O.'
+                : 'صور وذكريات مميزة وخالدة لمحمد سفيان M♡S♡O.'}
             </p>
           </div>
         </div>
@@ -48,141 +33,56 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
         </div>
       ) : null}
 
-      {/* Grid of Photo Cards */}
+      {/* Grid of Photo Cards (Read-Only & Full Original Aspect Ratio) */}
       {!loading && (
-        <div className="grid gap-6 md:grid-cols-3">
-          {photos.map((item) => {
-            const isDrawerOpen = activePhotoComments === item.id
+        <div className="grid gap-6 md:grid-cols-3 items-start">
+          {photos.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col justify-between overflow-hidden rounded-[1.8rem] border border-[rgba(56,189,248,0.12)] bg-[rgba(8,17,31,0.78)] shadow-[0_16px_40px_rgba(3,5,8,0.35)] backdrop-blur-xl transition duration-300 hover:border-[rgba(56,189,248,0.3)]"
+            >
+              <div>
+                {/* Photo Image Container (Uncropped, Natural Aspect Ratio) */}
+                <div className="relative overflow-hidden w-full bg-[rgba(3,5,8,0.6)] p-2 flex items-center justify-center min-h-[220px]">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="max-h-72 w-full object-contain rounded-xl transition duration-500 hover:scale-[1.02]"
+                  />
+                  <div className="absolute top-3 ltr:left-3 rtl:right-3 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(3,5,8,0.85)] px-3 py-1 text-[11px] font-bold text-[#38BDF8] backdrop-blur-md">
+                    {item.category}
+                  </div>
+                </div>
 
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col justify-between overflow-hidden rounded-[1.8rem] border border-[rgba(56,189,248,0.12)] bg-[rgba(8,17,31,0.78)] shadow-[0_16px_40px_rgba(3,5,8,0.35)] backdrop-blur-xl transition duration-300 hover:border-[rgba(56,189,248,0.3)]"
-              >
-                <div>
-                  {/* Photo Image */}
-                  <div className="relative overflow-hidden h-48 w-full">
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                    />
-                    <div className="absolute top-3 ltr:left-3 rtl:right-3 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(3,5,8,0.8)] px-3 py-1 text-[11px] font-bold text-[#38BDF8] backdrop-blur-md">
-                      {item.category}
+                {/* Content */}
+                <div className="p-4">
+                  <h4 className="font-bold text-[var(--text-primary)] text-base">{item.title}</h4>
+                  <p className="mt-1 text-xs leading-relaxed text-[var(--text-secondary)]">{item.description}</p>
+                </div>
+              </div>
+
+              {/* Static Badges Footer */}
+              <div className="p-4 pt-0 border-t border-[rgba(255,255,255,0.08)] mt-2">
+                <div className="mt-3 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-sky-400">
+                    <FaHeart className="text-xs" />
+                    <span>{item.likes_count}</span>
+                  </div>
+
+                  {item.comments && item.comments.length > 0 ? (
+                    <div className="flex items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.1)] px-3 py-1 text-xs font-bold text-[#38BDF8]">
+                      <FaComment className="text-xs" />
+                      <span>{item.comments.length}</span>
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4">
-                    <h4 className="font-bold text-[var(--text-primary)] text-base">{item.title}</h4>
-                    <p className="mt-1 text-xs leading-relaxed text-[var(--text-secondary)]">{item.description}</p>
-                  </div>
+                  ) : null}
                 </div>
-
-                {/* Interactive Actions Footer */}
-                <div className="p-4 pt-0 border-t border-[rgba(255,255,255,0.08)] mt-2">
-                  <div className="mt-3 flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => onToggleLike(item.id)}
-                      className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition ${
-                        item.liked_by_user
-                          ? 'bg-blue-500/20 text-sky-400 border border-blue-500/30'
-                          : 'bg-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:bg-[rgba(29,78,216,0.12)] hover:text-[#38BDF8]'
-                      }`}
-                    >
-                      {item.liked_by_user ? (
-                        <FaHeart className="text-sky-400 text-xs" />
-                      ) : (
-                        <FaRegHeart className="text-xs" />
-                      )}
-                      <span>
-                        {item.likes_count} {language === 'fr' ? 'J’aime' : 'إعجاب'}
-                      </span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setActivePhotoComments(isDrawerOpen ? null : item.id)}
-                      className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition ${
-                        isDrawerOpen
-                          ? 'bg-[rgba(29,78,216,0.18)] text-[#38BDF8] border border-[rgba(56,189,248,0.2)]'
-                          : 'bg-[rgba(255,255,255,0.06)] text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.12)] hover:text-[var(--text-primary)]'
-                      }`}
-                    >
-                      {isDrawerOpen ? <FaComment className="text-xs" /> : <FaRegComment className="text-xs" />}
-                      <span>
-                        {item.comments?.length ?? 0} {t('comments')}
-                      </span>
-                    </button>
-                  </div>
-
-                  {/* Photo Comments Drawer */}
-                  <AnimatePresence>
-                    {isDrawerOpen ? (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="mt-3 overflow-hidden rounded-xl border border-[rgba(56,189,248,0.12)] bg-[rgba(3,5,8,0.6)] p-3 text-xs"
-                      >
-                        {/* Comments List */}
-                        {item.comments && item.comments.length > 0 ? (
-                          <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
-                            {item.comments.map((comm) => (
-                              <div key={comm.id} className="rounded-lg bg-[rgba(8,17,31,0.8)] p-2">
-                                <div className="font-bold text-[#38BDF8]">{comm.author}</div>
-                                <p className="mt-0.5 text-[11px] text-[var(--text-secondary)]">{comm.text}</p>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <p className="text-[11px] text-[var(--text-muted)] text-center py-1">
-                            {t('noCommentsYet')}
-                          </p>
-                        )}
-
-                        {/* Comment Form */}
-                        <form
-                          onSubmit={(e) => handleCommentSubmit(e, item.id)}
-                          className="mt-2.5 pt-2 border-t border-[rgba(255,255,255,0.08)] space-y-1.5"
-                        >
-                          <input
-                            type="text"
-                            placeholder={t('yourName')}
-                            value={authorName}
-                            onChange={(e) => setAuthorName(e.target.value)}
-                            className="w-full rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(8,17,31,0.9)] px-2.5 py-1 text-[11px] text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
-                          />
-                          <div className="flex gap-1.5">
-                            <input
-                              type="text"
-                              placeholder={t('writeCommentPlaceholder')}
-                              value={commentText}
-                              onChange={(e) => setCommentText(e.target.value)}
-                              className="flex-1 rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(8,17,31,0.9)] px-2.5 py-1 text-[11px] text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
-                            />
-                            <button
-                              type="submit"
-                              title={t('send')}
-                              disabled={!commentText.trim()}
-                              className="rounded-lg bg-[rgba(29,78,216,0.2)] px-2.5 py-1 font-bold text-[#38BDF8] border border-[rgba(56,189,248,0.2)] hover:bg-[#1D4ED8] hover:text-white transition disabled:opacity-40"
-                            >
-                              <FaPaperPlane className="text-[10px]" />
-                            </button>
-                          </div>
-                        </form>
-                      </motion.div>
-                    ) : null}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            )
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       )}
     </section>

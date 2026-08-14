@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaCommentDots, FaGlobe, FaHeart, FaMagic, FaPenFancy, FaPhotoVideo } from 'react-icons/fa'
-import { GuestBookForm } from './GuestBookForm'
 import { GuestBookList } from './GuestBookList'
 import { MemoryInteractions } from './MemoryInteractions'
 import { DedicationQuote } from '../common/DedicationQuote'
@@ -18,19 +17,6 @@ export function GuestBookSection() {
     loading,
     error,
     stats,
-    name,
-    message,
-    selectedEmoji,
-    errors,
-    isSubmitting,
-    isSuccess,
-    successMessage,
-    handleNameChange,
-    handleMessageChange,
-    appendEmoji,
-    handleSubmit,
-    handleToggleLike,
-    handleAddComment,
     sortOrder,
     setSortOrder,
     searchQuery,
@@ -40,8 +26,6 @@ export function GuestBookSection() {
   const {
     photos,
     loading: loadingPhotos,
-    handleToggleLike: handleTogglePhotoLike,
-    handleAddComment: handleAddPhotoComment,
   } = useMemoryInteractions()
 
   return (
@@ -134,23 +118,8 @@ export function GuestBookSection() {
         </div>
       </motion.div>
 
-      {/* Luxury Form Section */}
-      <GuestBookForm
-        name={name}
-        message={message}
-        selectedEmoji={selectedEmoji}
-        errors={errors}
-        isSubmitting={isSubmitting}
-        isSuccess={isSuccess}
-        successMessage={successMessage}
-        onNameChange={handleNameChange}
-        onMessageChange={handleMessageChange}
-        onAppendEmoji={appendEmoji}
-        onSubmit={handleSubmit}
-      />
-
       {/* Navigation Tabs */}
-      <div className="flex justify-center mt-12 mb-6">
+      <div className="flex justify-center mt-8 mb-6">
         <div className="flex items-center gap-2 rounded-2xl border border-[rgba(56,189,248,0.15)] bg-[rgba(3,5,8,0.75)] p-1.5 backdrop-blur-xl">
           <button
             type="button"
@@ -190,16 +159,12 @@ export function GuestBookSection() {
           onSortChange={setSortOrder}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
-          onToggleLike={handleToggleLike}
-          onAddComment={handleAddComment}
           totalCount={entries.length}
         />
       ) : (
         <MemoryInteractions
           photos={photos}
           loading={loadingPhotos}
-          onToggleLike={handleTogglePhotoLike}
-          onAddComment={handleAddPhotoComment}
         />
       )}
     </section>

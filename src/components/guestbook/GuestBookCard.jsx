@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { FaComment, FaHeart, FaPaperPlane, FaRegComment, FaRegHeart } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import { FaComment, FaHeart } from 'react-icons/fa'
 import { useLanguage } from '../../contexts/LanguageContext'
 
 function formatTimestamp(dateStr, language) {
@@ -45,25 +44,8 @@ function getInitials(name) {
   return name.slice(0, 2).toUpperCase()
 }
 
-export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
+export function GuestBookCard({ entry }) {
   const { t, language } = useLanguage()
-  const [showComments, setShowComments] = useState(false)
-  const [commentAuthor, setCommentAuthor] = useState('')
-  const [commentText, setCommentText] = useState('')
-  const [isSubmittingComment, setIsSubmittingComment] = useState(false)
-
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault()
-    if (!commentText.trim()) return
-
-    setIsSubmittingComment(true)
-    await onAddComment(entry.id, {
-      author: commentAuthor.trim() || t('visitorName'),
-      text: commentText.trim(),
-    })
-    setIsSubmittingComment(false)
-    setCommentText('')
-  }
 
   return (
     <motion.article
@@ -105,113 +87,44 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
         </div>
       </div>
 
-      {/* Card Actions & Footer */}
+      {/* Card Footer (Static Read-Only Metadata Badges) */}
       <div className="mt-5 border-t border-[rgba(255,255,255,0.08)] pt-3.5">
         <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-4">
-            {/* Like Button */}
-            <button
-              type="button"
-              onClick={() => onToggleLike(entry.id)}
-              className={`group/heart flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all duration-200 ${
-                entry.liked_by_user
-                  ? 'bg-blue-500/20 text-sky-400 border border-blue-500/30'
-                  : 'bg-[rgba(255,255,255,0.05)] text-[var(--text-secondary)] hover:bg-[rgba(29,78,216,0.12)] hover:text-[#38BDF8]'
-              }`}
-            >
-              <motion.span
-                animate={entry.liked_by_user ? { scale: [1, 1.3, 1] } : { scale: 1 }}
-                transition={{ duration: 0.25 }}
-              >
-                {entry.liked_by_user ? (
-                  <FaHeart className="text-sky-400 text-sm" />
-                ) : (
-                  <FaRegHeart className="text-sm transition-transform group-hover/heart:scale-110" />
-                )}
-              </motion.span>
+          <div className="flex items-center gap-3">
+            {/* Static Likes Count Badge */}
+            <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-sky-400">
+              <FaHeart className="text-xs" />
               <span>{entry.likes_count ?? 0}</span>
-              <span className="hidden sm:inline text-[10px] opacity-80">
-                {entry.liked_by_user ? t('unlike') : t('like')}
-              </span>
-            </button>
+            </div>
 
-            {/* Comment Toggle Button */}
-            <button
-              type="button"
-              onClick={() => setShowComments((prev) => !prev)}
-              className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all duration-200 ${
-                showComments
-                  ? 'bg-[rgba(29,78,216,0.18)] text-[#38BDF8] border border-[rgba(56,189,248,0.2)]'
-                  : 'bg-[rgba(255,255,255,0.05)] text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.1)] hover:text-[var(--text-primary)]'
-              }`}
-            >
-              {showComments ? <FaComment className="text-sm" /> : <FaRegComment className="text-sm" />}
-              <span>{entry.comments?.length ?? 0} {t('comments')}</span>
-            </button>
+            {/* Static Comments Count Badge */}
+            {entry.comments && entry.comments.length > 0 ? (
+              <div className="flex items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.1)] px-3 py-1 text-xs font-bold text-[#38BDF8]">
+                <FaComment className="text-xs" />
+                <span>{entry.comments.length}</span>
+              </div>
+            ) : null}
           </div>
 
           <span className="text-[11px] text-[var(--text-muted)]">{t('verifiedGuest')}</span>
         </div>
 
-        {/* Collapsible Comments Drawer */}
-        <AnimatePresence>
-          {showComments ? (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="mt-3 overflow-hidden rounded-2xl border border-[rgba(56,189,248,0.12)] bg-[rgba(3,5,8,0.6)] p-3"
-            >
-              {/* Existing Comments */}
-              {entry.comments && entry.comments.length > 0 ? (
-                <div className="space-y-2.5 max-h-48 overflow-y-auto pr-1">
-                  {entry.comments.map((comm) => (
-                    <div key={comm.id} className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(8,17,31,0.6)] p-2.5">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-[#38BDF8]">{comm.author}</span>
-                        <span className="text-[10px] text-[var(--text-muted)]">{formatTimestamp(comm.created_at, language)}</span>
-                      </div>
-                      <p className="mt-1 text-xs leading-relaxed text-[var(--text-secondary)]">{comm.text}</p>
-                    </div>
-                  ))}
+        {/* Static Comments List (Read-Only) if comments exist */}
+        {entry.comments && entry.comments.length > 0 ? (
+          <div className="mt-3 overflow-hidden rounded-2xl border border-[rgba(56,189,248,0.12)] bg-[rgba(3,5,8,0.6)] p-3">
+            <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
+              {entry.comments.map((comm) => (
+                <div key={comm.id} className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(8,17,31,0.6)] p-2.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-[#38BDF8]">{comm.author}</span>
+                    <span className="text-[10px] text-[var(--text-muted)]">{formatTimestamp(comm.created_at, language)}</span>
+                  </div>
+                  <p className="mt-1 text-xs leading-relaxed text-[var(--text-secondary)]">{comm.text}</p>
                 </div>
-              ) : (
-                <p className="py-2 text-center text-xs text-[var(--text-muted)]">
-                  {t('noCommentsYet')}
-                </p>
-              )}
-
-              {/* Add Comment Form */}
-              <form onSubmit={handleCommentSubmit} className="mt-3 pt-2 border-t border-[rgba(255,255,255,0.08)] space-y-2">
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder={t('yourName')}
-                    value={commentAuthor}
-                    onChange={(e) => setCommentAuthor(e.target.value)}
-                    className="w-1/3 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(8,17,31,0.8)] px-2.5 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
-                  />
-                  <input
-                    type="text"
-                    placeholder={t('writeCommentPlaceholder')}
-                    value={commentText}
-                    onChange={(e) => setCommentText(e.target.value)}
-                    className="flex-1 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(8,17,31,0.8)] px-3 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
-                  />
-                  <button
-                    type="submit"
-                    title={t('send')}
-                    disabled={isSubmittingComment || !commentText.trim()}
-                    className="flex items-center justify-center rounded-xl bg-[rgba(29,78,216,0.2)] px-3 py-1.5 text-xs font-bold text-[#38BDF8] border border-[rgba(56,189,248,0.2)] hover:bg-[#1D4ED8] hover:text-white transition duration-200 disabled:opacity-40"
-                  >
-                    <FaPaperPlane className="text-[10px]" />
-                  </button>
-                </div>
-              </form>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
     </motion.article>
   )

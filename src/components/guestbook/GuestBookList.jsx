@@ -11,8 +11,6 @@ export function GuestBookList({
   onSortChange,
   searchQuery,
   onSearchChange,
-  onToggleLike,
-  onAddComment,
   totalCount,
 }) {
   const { t, language } = useLanguage()
@@ -131,18 +129,9 @@ export function GuestBookList({
                 ? 'Aucun message ne correspond à la recherche'
                 : 'لم نجد تهنئة تطابق البحث'
               : language === 'fr'
-              ? 'Soyez le premier à écrire un vœu pour Mohamed Soufiane !'
-              : 'كن أول من يكتب تهنئة لمحمد سفيان!'}
+              ? 'Aucun message pour le moment'
+              : 'لا توجد رسائل'}
           </h4>
-          <p className="mt-2 max-w-md text-xs text-[var(--text-secondary)] sm:text-sm">
-            {searchQuery
-              ? language === 'fr'
-                ? `Aucun message trouvé contenant "${searchQuery}". Essayez d’effacer le filtre.`
-                : `لم يتم العثور على أي رسائل تحتوي على "${searchQuery}". حاول مسح التصفية.`
-              : language === 'fr'
-              ? 'Écrivez votre message de félicitations ci-dessus !'
-              : 'اكتب تهنئتك الدافئة باستخدام النموذج أعلاه لافتتاح سجل التبريكات!'}
-          </p>
           {searchQuery ? (
             <button
               type="button"
@@ -155,17 +144,12 @@ export function GuestBookList({
         </motion.div>
       ) : null}
 
-      {/* Animated Cards Grid */}
+      {/* Animated Read-Only Cards Grid */}
       {!loading && !error && entries.length > 0 ? (
         <div className="grid gap-5 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
             {entries.map((entry) => (
-              <GuestBookCard
-                key={entry.id}
-                entry={entry}
-                onToggleLike={onToggleLike}
-                onAddComment={onAddComment}
-              />
+              <GuestBookCard key={entry.id} entry={entry} />
             ))}
           </AnimatePresence>
         </div>
