@@ -4,7 +4,9 @@ import { FaComment, FaHeart, FaPaperPlane, FaRegComment, FaRegHeart } from 'reac
 import { useLanguage } from '../../contexts/LanguageContext'
 
 function formatTimestamp(dateStr, language) {
-  if (!dateStr) return language === 'ar' ? 'الآن' : 'Just now'
+  if (!dateStr) {
+    return language === 'fr' ? 'À l’instant' : 'الآن'
+  }
   try {
     const date = new Date(dateStr)
     if (isNaN(date.getTime())) return dateStr
@@ -12,17 +14,19 @@ function formatTimestamp(dateStr, language) {
     const now = new Date()
     const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000)
 
-    if (diffInSeconds < 60) return language === 'ar' ? 'الآن' : 'Just now'
+    if (diffInSeconds < 60) {
+      return language === 'fr' ? 'À l’instant' : 'الآن'
+    }
     if (diffInSeconds < 3600) {
       const mins = Math.floor(diffInSeconds / 60)
-      return language === 'ar' ? `منذ ${mins} دقيقة` : `${mins}m ago`
+      return language === 'fr' ? `Il y a ${mins} min` : `منذ ${mins} دقيقة`
     }
     if (diffInSeconds < 86400) {
       const hours = Math.floor(diffInSeconds / 3600)
-      return language === 'ar' ? `منذ ${hours} ساعة` : `${hours}h ago`
+      return language === 'fr' ? `Il y a ${hours} h` : `منذ ${hours} ساعة`
     }
 
-    return date.toLocaleDateString(language === 'ar' ? 'ar-EG' : 'en-US', {
+    return date.toLocaleDateString(language === 'fr' ? 'fr-FR' : 'ar-EG', {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
@@ -54,7 +58,7 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
 
     setIsSubmittingComment(true)
     await onAddComment(entry.id, {
-      author: commentAuthor.trim() || (language === 'ar' ? 'مهنئ' : 'Visitor'),
+      author: commentAuthor.trim() || t('visitorName'),
       text: commentText.trim(),
     })
     setIsSubmittingComment(false)
@@ -91,7 +95,7 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
           </div>
 
           <span className="rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.08)] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#38BDF8]">
-            {language === 'ar' ? 'تهنئة' : 'Wish'}
+            {t('congratulations')}
           </span>
         </div>
 
@@ -126,6 +130,9 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
                 )}
               </motion.span>
               <span>{entry.likes_count ?? 0}</span>
+              <span className="hidden sm:inline text-[10px] opacity-80">
+                {entry.liked_by_user ? t('unlike') : t('like')}
+              </span>
             </button>
 
             {/* Comment Toggle Button */}
@@ -171,7 +178,7 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
                 </div>
               ) : (
                 <p className="py-2 text-center text-xs text-[var(--text-muted)]">
-                  {language === 'ar' ? 'لا توجد ردود بعد. كن أول من يرد!' : 'No replies yet. Be the first to reply!'}
+                  {t('noCommentsYet')}
                 </p>
               )}
 
@@ -187,13 +194,14 @@ export function GuestBookCard({ entry, onToggleLike, onAddComment }) {
                   />
                   <input
                     type="text"
-                    placeholder={t('addReply')}
+                    placeholder={t('writeCommentPlaceholder')}
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
                     className="flex-1 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[rgba(8,17,31,0.8)] px-3 py-1.5 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
                   />
                   <button
                     type="submit"
+                    title={t('send')}
                     disabled={isSubmittingComment || !commentText.trim()}
                     className="flex items-center justify-center rounded-xl bg-[rgba(29,78,216,0.2)] px-3 py-1.5 text-xs font-bold text-[#38BDF8] border border-[rgba(56,189,248,0.2)] hover:bg-[#1D4ED8] hover:text-white transition duration-200 disabled:opacity-40"
                   >

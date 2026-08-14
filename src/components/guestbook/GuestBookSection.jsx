@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaCommentDots, FaHeart, FaMagic, FaPenFancy, FaPhotoVideo } from 'react-icons/fa'
+import { FaCommentDots, FaGlobe, FaHeart, FaMagic, FaPenFancy, FaPhotoVideo } from 'react-icons/fa'
 import { GuestBookForm } from './GuestBookForm'
 import { GuestBookList } from './GuestBookList'
 import { MemoryInteractions } from './MemoryInteractions'
@@ -10,7 +10,7 @@ import { useMemoryInteractions } from '../../hooks/useMemoryInteractions'
 import { useLanguage } from '../../contexts/LanguageContext'
 
 export function GuestBookSection() {
-  const { t } = useLanguage()
+  const { t, language, setLanguage } = useLanguage()
   const [activeTab, setActiveTab] = useState('wishes') // 'wishes' | 'photos'
 
   const {
@@ -47,7 +47,41 @@ export function GuestBookSection() {
   return (
     <section className="space-y-8 mt-24 mb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <DedicationQuote quoteKey="quoteGuestbook" />
+
+      {/* Guestbook Section Header with AR/FR Language Switcher */}
       <div className="text-center mt-12">
+        {/* AR / FR Only Language Selector for Guest Book */}
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <span className="text-xs text-[var(--text-muted)] flex items-center gap-1.5 font-medium">
+            <FaGlobe className="text-[#38BDF8] text-xs" />
+            <span>{language === 'fr' ? 'Langue du livre d’or :' : 'لغة دفتر الزوار:'}</span>
+          </span>
+          <div className="flex items-center gap-1 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(3,5,8,0.7)] p-1 backdrop-blur-md">
+            <button
+              type="button"
+              onClick={() => setLanguage('ar')}
+              className={`rounded-full px-3 py-1 text-xs font-bold transition duration-200 ${
+                language === 'ar'
+                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] text-white shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-white'
+              }`}
+            >
+              العربية
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage('fr')}
+              className={`rounded-full px-3 py-1 text-xs font-bold transition duration-200 ${
+                language === 'fr'
+                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] text-white shadow-md'
+                  : 'text-[var(--text-secondary)] hover:text-white'
+              }`}
+            >
+              Français
+            </button>
+          </div>
+        </div>
+
         <h2 className="text-3xl font-bold sm:text-4xl text-[var(--text-primary)]">
           {t('guestbookTitle')}
         </h2>

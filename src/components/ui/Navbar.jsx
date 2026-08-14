@@ -148,7 +148,7 @@ export function Navbar() {
             title="تغيير اللغة / Change Language"
           >
             <FaGlobe className="text-[10px]" />
-            <span>{language === 'ar' ? 'EN' : 'عر'}</span>
+            <span>{language === 'ar' ? 'FR' : 'عر'}</span>
           </button>
         </div>
 
@@ -160,7 +160,7 @@ export function Navbar() {
             title="تغيير اللغة / Change Language"
           >
             <FaGlobe className="text-[10px]" />
-            <span>{language === 'ar' ? 'EN' : 'عر'}</span>
+            <span>{language === 'ar' ? 'FR' : 'عر'}</span>
           </button>
 
           <button

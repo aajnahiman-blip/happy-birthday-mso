@@ -35,13 +35,13 @@ export function GuestBookList({
           <div>
             <h3 className="text-lg font-bold text-[var(--text-primary)]">{t('wishesFeed')}</h3>
             <p className="text-xs text-[var(--text-secondary)]">
-              {language === 'ar' ? (
+              {language === 'fr' ? (
                 <>
-                  عرض <span className="font-bold text-[#38BDF8]">{entries.length}</span> من أصل {totalCount} تهنئة
+                  Affichage de <span className="font-bold text-[#38BDF8]">{entries.length}</span> sur {totalCount} messages
                 </>
               ) : (
                 <>
-                  Showing <span className="font-bold text-[#38BDF8]">{entries.length}</span> of {totalCount} wishes
+                  عرض <span className="font-bold text-[#38BDF8]">{entries.length}</span> من أصل {totalCount} تهنئة
                 </>
               )}
             </p>
@@ -59,7 +59,7 @@ export function GuestBookList({
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              placeholder={t('searchWishes')}
+              placeholder={t('searchMessages')}
               className="w-full rounded-xl border border-[rgba(56,189,248,0.12)] bg-[rgba(3,5,8,0.6)] py-2 ltr:pl-9 ltr:pr-3 rtl:pr-9 rtl:pl-3 text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]/30"
             />
             {searchQuery ? (
@@ -76,7 +76,7 @@ export function GuestBookList({
           {/* Sort Selector */}
           <div className="flex items-center gap-1 rounded-xl border border-[rgba(56,189,248,0.12)] bg-[rgba(3,5,8,0.6)] p-1 text-xs">
             <span className="hidden px-2 text-[var(--text-muted)] sm:inline-flex items-center gap-1">
-              <FaSortAmountDown className="text-[10px] text-[#2563EB]" /> {language === 'ar' ? 'ترتيب:' : 'Sort:'}
+              <FaSortAmountDown className="text-[10px] text-[#2563EB]" /> {language === 'fr' ? 'Trier :' : 'ترتيب:'}
             </span>
             {SORT_OPTIONS.map((option) => (
               <button
@@ -127,21 +127,21 @@ export function GuestBookList({
           </div>
           <h4 className="text-lg font-bold text-[var(--text-primary)]">
             {searchQuery
-              ? language === 'ar'
-                ? 'لم نجد تهنئة تطابق البحث'
-                : 'No matching wishes found'
-              : language === 'ar'
-              ? 'كن أول من يكتب تهنئة لمحمد سفيان!'
-              : 'Be the first to leave a wish!'}
+              ? language === 'fr'
+                ? 'Aucun message ne correspond à la recherche'
+                : 'لم نجد تهنئة تطابق البحث'
+              : language === 'fr'
+              ? 'Soyez le premier à écrire un vœu pour Mohamed Soufiane !'
+              : 'كن أول من يكتب تهنئة لمحمد سفيان!'}
           </h4>
           <p className="mt-2 max-w-md text-xs text-[var(--text-secondary)] sm:text-sm">
             {searchQuery
-              ? language === 'ar'
-                ? `لم يتم العثور على أي رسائل تحتوي على "${searchQuery}". حاول مسح التصفية.`
-                : `We couldn't find any messages matching "${searchQuery}". Try clearing your search filter.`
-              : language === 'ar'
-              ? 'اكتب تهنئتك الدافئة باستخدام النموذج أعلاه لافتتاح سجل التبريكات!'
-              : 'Write your warm birthday message using the form above to kick off the Guest Book!'}
+              ? language === 'fr'
+                ? `Aucun message trouvé contenant "${searchQuery}". Essayez d’effacer le filtre.`
+                : `لم يتم العثور على أي رسائل تحتوي على "${searchQuery}". حاول مسح التصفية.`
+              : language === 'fr'
+              ? 'Écrivez votre message de félicitations ci-dessus !'
+              : 'اكتب تهنئتك الدافئة باستخدام النموذج أعلاه لافتتاح سجل التبريكات!'}
           </p>
           {searchQuery ? (
             <button
@@ -149,7 +149,7 @@ export function GuestBookList({
               onClick={() => onSearchChange('')}
               className="mt-4 rounded-xl border border-[rgba(56,189,248,0.2)] bg-[rgba(29,78,216,0.1)] px-4 py-2 text-xs font-bold text-[#38BDF8] hover:bg-[#1D4ED8] hover:text-white transition"
             >
-              {language === 'ar' ? 'إلغاء التصفية' : 'Clear Search Filter'}
+              {language === 'fr' ? 'Effacer le filtre' : 'إلغاء التصفية'}
             </button>
           ) : null}
         </motion.div>

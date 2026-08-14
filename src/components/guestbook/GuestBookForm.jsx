@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { FaCheckCircle, FaMagic, FaPaperPlane, FaRegSmile, FaUser } from 'react-icons/fa'
+import { FaCheckCircle, FaPaperPlane, FaRegSmile, FaUser } from 'react-icons/fa'
 import { useLanguage } from '../../contexts/LanguageContext'
 
 const QUICK_EMOJIS = ['🎉', '🎂', '✨', '❤️', '👑', '🥳', '🥂', '🎁', '💖', '🌟', '🍰', '💌']
@@ -40,12 +40,12 @@ export function GuestBookForm({
         </div>
 
         <h2 className="mt-3 text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl lg:text-4xl">
-          {t('leaveWish')}
+          {t('writeYourWishes')}
         </h2>
         <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)] sm:text-base">
-          {language === 'ar'
-            ? 'اكتب رسالة تهنئة، دعاء صادق، أو كلمة طيبة لمحمد سفيان M♡S♡O بمناسبة عيد ميلاده المبارك.'
-            : 'Write a warm message, blessing, or memory to celebrate Mohamed Soufiane M♡S♡O.'}
+          {language === 'fr'
+            ? 'Écrivez un message de félicitations, des vœux sincères ou un mot chaleureux pour Mohamed Soufiane M♡S♡O à l’occasion de son anniversaire.'
+            : 'اكتب رسالة تهنئة، دعاء صادق، أو كلمة طيبة لمحمد سفيان M♡S♡O بمناسبة عيد ميلاده المبارك.'}
         </p>
 
         {/* Success Banner */}
@@ -63,7 +63,7 @@ export function GuestBookForm({
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-[var(--text-primary)]">
-                    {language === 'ar' ? 'تم نشر التهنئة بنجاح!' : 'Wish Sent Successfully!'}
+                    {language === 'fr' ? 'Message envoyé avec succès !' : 'تم نشر التهنئة بنجاح!'}
                   </h4>
                   <p className="text-xs text-[var(--text-secondary)] sm:text-sm">{successMessage}</p>
                 </div>
@@ -87,7 +87,7 @@ export function GuestBookForm({
                 type="text"
                 value={name}
                 onChange={(e) => onNameChange(e.target.value)}
-                placeholder={language === 'ar' ? 'مثال: سارة م. / أبو أحمد' : 'e.g. Sarah M.'}
+                placeholder={language === 'fr' ? 'Ex : Sarah M. / Mohamed' : 'مثال: سارة م. / أبو أحمد'}
                 maxLength={60}
                 className={`w-full rounded-2xl border bg-[rgba(3,5,8,0.6)] py-3.5 ltr:pl-11 ltr:pr-4 rtl:pr-11 rtl:pl-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition duration-200 ${
                   errors.name
@@ -110,7 +110,7 @@ export function GuestBookForm({
                 {t('birthdayMessage')} <span className="text-[#2563EB]">*</span>
               </label>
               <span className={`text-xs ${charsRemaining < 50 ? 'text-amber-400 font-semibold' : 'text-[var(--text-muted)]'}`}>
-                {charsRemaining} {language === 'ar' ? 'حرف متبقي' : 'characters left'}
+                {charsRemaining} {language === 'fr' ? 'caractères restants' : 'حرف متبقي'}
               </span>
             </div>
             <div className="relative">
@@ -123,11 +123,7 @@ export function GuestBookForm({
                   }
                 }}
                 rows={4}
-                placeholder={
-                  language === 'ar'
-                    ? 'اكتب أمنياتك ودعواتك الصادقة لمحمد سفيان بمناسبة عيد ميلاده...'
-                    : 'Write your heartfelt birthday wishes, blessings, or favorite memories...'
-                }
+                placeholder={t('writeMessagePlaceholder')}
                 className={`w-full rounded-2xl border bg-[rgba(3,5,8,0.6)] p-4 text-sm leading-relaxed text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition duration-200 ${
                   errors.message
                     ? 'border-red-400/80 focus:border-red-400 focus:ring-2 focus:ring-red-400/20'
@@ -145,7 +141,7 @@ export function GuestBookForm({
           {/* Quick Emoji Bar */}
           <div>
             <div className="mb-2 flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)]">
-              <FaRegSmile className="text-[#2563EB]" /> {language === 'ar' ? 'رموز سريعة (اضغط للإضافة):' : 'Quick Emojis (tap to add):'}
+              <FaRegSmile className="text-[#2563EB]" /> {language === 'fr' ? 'Émojis rapides (appuyez pour ajouter) :' : 'رموز سريعة (اضغط للإضافة):'}
             </div>
             <div className="flex flex-wrap gap-2">
               {QUICK_EMOJIS.map((emoji) => (
@@ -184,12 +180,12 @@ export function GuestBookForm({
               {isSubmitting ? (
                 <>
                   <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                  <span>{language === 'ar' ? 'جاري نشر التهنئة…' : 'Publishing Wish…'}</span>
+                  <span>{language === 'fr' ? 'Envoi en cours…' : 'جاري نشر التهنئة…'}</span>
                 </>
               ) : (
                 <>
                   <FaPaperPlane className="text-xs" />
-                  <span>{t('postWish')}</span>
+                  <span>{t('send')}</span>
                 </>
               )}
             </motion.button>

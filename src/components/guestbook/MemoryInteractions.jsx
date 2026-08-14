@@ -14,7 +14,7 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
     if (!commentText.trim()) return
 
     await onAddComment(photoId, {
-      author: authorName.trim() || (language === 'ar' ? 'مهنئ' : 'Visitor'),
+      author: authorName.trim() || t('visitorName'),
       text: commentText.trim(),
     })
     setCommentText('')
@@ -31,9 +31,9 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
           <div>
             <h3 className="text-xl font-bold text-[var(--text-primary)]">{t('photoInteractions')}</h3>
             <p className="mt-0.5 text-xs text-[var(--text-secondary)] sm:text-sm">
-              {language === 'ar'
-                ? 'أظهر محبتك! أعجب وعلق مباشرة على الصور والذكريات المميزة لمحمد سفيان M♡S♡O.'
-                : 'Show your love! Like and comment directly on cherished photos and milestone memories.'}
+              {language === 'fr'
+                ? 'Affichez votre affection ! Aimez et commentez directement sur les photos et souvenirs de Mohamed Soufiane M♡S♡O.'
+                : 'أظهر محبتك! أعجب وعلق مباشرة على الصور والذكريات المميزة لمحمد سفيان M♡S♡O.'}
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
                         <FaRegHeart className="text-xs" />
                       )}
                       <span>
-                        {item.likes_count} {language === 'ar' ? 'إعجاب' : 'Likes'}
+                        {item.likes_count} {language === 'fr' ? 'J’aime' : 'إعجاب'}
                       </span>
                     </button>
 
@@ -116,7 +116,7 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
                     >
                       {isDrawerOpen ? <FaComment className="text-xs" /> : <FaRegComment className="text-xs" />}
                       <span>
-                        {item.comments?.length ?? 0} {language === 'ar' ? 'تعليق' : 'Comments'}
+                        {item.comments?.length ?? 0} {t('comments')}
                       </span>
                     </button>
                   </div>
@@ -142,7 +142,7 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
                           </div>
                         ) : (
                           <p className="text-[11px] text-[var(--text-muted)] text-center py-1">
-                            {language === 'ar' ? 'لا توجد تعليقات بعد. اترك فكرة!' : 'No comments yet. Leave a thought!'}
+                            {t('noCommentsYet')}
                           </p>
                         )}
 
@@ -153,7 +153,7 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
                         >
                           <input
                             type="text"
-                            placeholder={language === 'ar' ? 'اسمك' : 'Your name'}
+                            placeholder={t('yourName')}
                             value={authorName}
                             onChange={(e) => setAuthorName(e.target.value)}
                             className="w-full rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(8,17,31,0.9)] px-2.5 py-1 text-[11px] text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
@@ -161,13 +161,14 @@ export function MemoryInteractions({ photos, loading, onToggleLike, onAddComment
                           <div className="flex gap-1.5">
                             <input
                               type="text"
-                              placeholder={language === 'ar' ? 'أضف تعليقاً...' : 'Add a comment...'}
+                              placeholder={t('writeCommentPlaceholder')}
                               value={commentText}
                               onChange={(e) => setCommentText(e.target.value)}
                               className="flex-1 rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(8,17,31,0.9)] px-2.5 py-1 text-[11px] text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#2563EB]"
                             />
                             <button
                               type="submit"
+                              title={t('send')}
                               disabled={!commentText.trim()}
                               className="rounded-lg bg-[rgba(29,78,216,0.2)] px-2.5 py-1 font-bold text-[#38BDF8] border border-[rgba(56,189,248,0.2)] hover:bg-[#1D4ED8] hover:text-white transition disabled:opacity-40"
                             >
