@@ -70,15 +70,13 @@ export function MemoryInteractions({ photos, loading }) {
                 <div className="mt-3 flex items-center justify-between">
                   <div className="flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-bold text-sky-400">
                     <FaHeart className="text-xs" />
-                    <span>{item.likes_count}</span>
+                    <span>{item.likes_count ?? 0}</span>
                   </div>
 
-                  {item.comments && item.comments.length > 0 ? (
-                    <div className="flex items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.1)] px-3 py-1 text-xs font-bold text-[#38BDF8]">
-                      <FaComment className="text-xs" />
-                      <span>{item.comments.length}</span>
-                    </div>
-                  ) : null}
+                  <div className="flex items-center gap-1.5 rounded-full border border-[rgba(56,189,248,0.15)] bg-[rgba(29,78,216,0.1)] px-3 py-1 text-xs font-bold text-[#38BDF8]">
+                    <FaComment className="text-xs" />
+                    <span>{item.comments?.length ?? 0}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
