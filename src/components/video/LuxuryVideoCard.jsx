@@ -90,7 +90,7 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
 
             <video
               ref={videoRef}
-              src={video.url}
+              src={video.url || video.src}
               poster={isValidPoster ? video.poster : undefined}
               controls
               playsInline
@@ -132,7 +132,14 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
           {!isActive ? (
             <button
               type="button"
-              onClick={onPlay}
+              onClick={() => {
+                onPlay()
+                if (videoRef.current) {
+                  videoRef.current.play().catch((err) => {
+                    console.warn('[LuxuryVideoCard] direct play() call:', err)
+                  })
+                }
+              }}
               className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-5 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(29,78,216,0.25)] hover:opacity-90 transition"
             >
               ▶ Play Video
@@ -140,7 +147,12 @@ export function LuxuryVideoCard({ video, isActive, onPlay, onPause, onClose }) {
           ) : (
             <button
               type="button"
-              onClick={onPause}
+              onClick={() => {
+                onPause()
+                if (videoRef.current) {
+                  videoRef.current.pause()
+                }
+              }}
               className="rounded-full bg-[rgba(29,78,216,0.15)] border border-[#1D4ED8] px-5 py-2 text-xs font-bold text-[#38BDF8] hover:bg-[#1D4ED8] hover:text-white transition"
             >
               ⏸ Pause

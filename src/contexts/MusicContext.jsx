@@ -54,12 +54,17 @@ export function MusicProvider({ children }) {
     const handleEnded = () => setIsPlaying(false)
     const handleTimeUpdate = () => setCurrentTime(audio.currentTime || 0)
     const handleLoadedMetadata = () => setDuration(audio.duration || 0)
+    const handleError = (e) => {
+      console.warn('Audio playback error:', e)
+      setIsPlaying(false)
+    }
 
     audio.addEventListener('play', handlePlay)
     audio.addEventListener('pause', handlePause)
     audio.addEventListener('ended', handleEnded)
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('loadedmetadata', handleLoadedMetadata)
+    audio.addEventListener('error', handleError)
 
     return () => {
       audio.removeEventListener('play', handlePlay)
@@ -67,6 +72,7 @@ export function MusicProvider({ children }) {
       audio.removeEventListener('ended', handleEnded)
       audio.removeEventListener('timeupdate', handleTimeUpdate)
       audio.removeEventListener('loadedmetadata', handleLoadedMetadata)
+      audio.removeEventListener('error', handleError)
     }
   }, [])
 

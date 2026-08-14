@@ -56,7 +56,7 @@ export const initialPhotoMemories = [
     id: 'photo-mem-1',
     title: 'تفصيل جميل من يومك',
     description: 'صورة أحببت أن أحتفظ بها لأنها تحمل شيئاً من جمالك وتبقى ذكرى جميلة في هذا المكان. ❤️',
-    src: '/media/photos/photo-1.svg',
+    src: '/media/our-photos/our-photo-01.jpg',
     category: 'ذكريات',
     likes_count: 18,
     liked_by_user: false,

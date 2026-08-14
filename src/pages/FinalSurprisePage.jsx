@@ -196,14 +196,13 @@ export function FinalSurprisePage() {
               <>
                 كل عام وأنت{' '}
                 <span className="bg-gradient-to-r from-[#F8FAFC] via-[#CBD5E1] to-[#38BDF8] bg-clip-text text-transparent">
-                  محمد سفيان
-                </span>
+حبيبي الغالي                 </span>
               </>
             ) : (
               <>
                 Happy Birthday{' '}
                 <span className="bg-gradient-to-r from-[#F8FAFC] via-[#CBD5E1] to-[#38BDF8] bg-clip-text text-transparent">
-                  Mohamed Soufiane
+                  My dear love
                 </span>
               </>
             )}

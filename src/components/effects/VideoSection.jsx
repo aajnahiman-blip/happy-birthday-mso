@@ -7,7 +7,7 @@ export function VideoSection() {
       <h3 className="mt-2 text-xl font-semibold">Media-ready player shell</h3>
       <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--border)]">
         <video controls poster={videoItems[0].poster} className="aspect-video">
-          <source src={videoItems[0].src} type="video/mp4" />
+          <source src={videoItems[0].url || videoItems[0].src} type="video/mp4" />
         </video>
       </div>
     </section>
