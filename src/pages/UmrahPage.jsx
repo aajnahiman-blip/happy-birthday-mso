@@ -11,8 +11,8 @@ export function UmrahPage() {
   return (
     <PageLayout titleKey="umrahTitle" descriptionKey="umrahDesc">
       <Helmet>
-        <title>{t('umrahTitle')} | M♡S♡O 💎</title>
-        <meta name="description" content="Umrah journey timeline of Mohamed Soufiane M♡S♡O 💎." />
+        <title>{t('umrahTitle')} | M♡S♡O</title>
+        <meta name="description" content={t('umrahDesc')} />
       </Helmet>
       <div className="space-y-6">
         <DedicationQuote quoteKey="quoteUmrah" />

@@ -33,8 +33,8 @@ export function IntroPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#030508] text-[#F8FAFC]" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <Helmet>
-        <title>Happy Birthday Mohamed Soufiane | M♡S♡O</title>
-        <meta name="description" content="A luxury cinematic birthday intro experience for Mohamed Soufiane M♡S♡O." />
+        <title>{language === 'fr' ? 'Joyeux Anniversaire Mohamed Soufiane | M♡S♡O' : 'عيد ميلاد سعيد محمد سفيان | M♡S♡O'}</title>
+        <meta name="description" content={language === 'fr' ? 'Une expérience cinématographique luxueuse d’anniversaire pour Mohamed Soufiane M♡S♡O.' : 'مساحة احتفالية سينمائية فاخرة تحتفي بعيد ميلاد محمد سفيان M♡S♡O.'} />
       </Helmet>
 
       <IntroScene />
@@ -48,7 +48,7 @@ export function IntroPage() {
         >
           <p className="text-xs uppercase tracking-[0.45em] text-[#E2E8F0] font-bold">{t('fullName')}</p>
           <h1 className="mt-3 text-3xl font-bold tracking-wide text-[#F8FAFC] sm:text-5xl lg:text-6xl">
-            {language === 'ar' ? 'عيد ميلاد سعيد' : 'Happy Birthday'}{' '}
+            {language === 'ar' ? 'عيد ميلاد سعيد' : 'Joyeux Anniversaire'}{' '}
             <span className="bg-gradient-to-r from-[#F8FAFC] via-[#CBD5E1] to-[#38BDF8] bg-clip-text text-transparent">
               {t('fullName')}
             </span>
@@ -64,7 +64,7 @@ export function IntroPage() {
             onClick={handleEnter}
             className="mt-8 rounded-full border border-[rgba(226,232,240,0.25)] bg-gradient-to-r from-[#1D4ED8] via-[#2563EB] to-[#1D4ED8] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_35px_rgba(29,78,216,0.3)] transition hover:shadow-[0_15px_40px_rgba(29,78,216,0.45)]"
           >
-            {language === 'ar' ? 'دخول التجربة الفاخرة' : 'Enter the Experience'}
+            {t('enterExperience')}
           </motion.button>
         </motion.div>
       </div>

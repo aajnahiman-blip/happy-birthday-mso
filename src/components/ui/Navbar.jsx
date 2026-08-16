@@ -145,7 +145,7 @@ export function Navbar() {
             type="button"
             onClick={toggleLanguage}
             className="ms-1 flex items-center gap-1.5 rounded-full border border-[rgba(226,232,240,0.18)] bg-[rgba(29,78,216,0.1)] px-3 py-1.5 text-xs font-bold text-[#E2E8F0] hover:bg-[rgba(29,78,216,0.22)] transition duration-200"
-            title="تغيير اللغة / Change Language"
+            title={t('changeLanguage')}
           >
             <FaGlobe className="text-[10px]" />
             <span>{language === 'ar' ? 'FR' : 'عر'}</span>
@@ -157,7 +157,7 @@ export function Navbar() {
             type="button"
             onClick={toggleLanguage}
             className="flex items-center gap-1 rounded-full border border-[rgba(226,232,240,0.15)] bg-[rgba(29,78,216,0.08)] px-2.5 py-1.5 text-[11px] font-bold text-[#E2E8F0] transition"
-            title="تغيير اللغة / Change Language"
+            title={t('changeLanguage')}
           >
             <FaGlobe className="text-[10px]" />
             <span>{language === 'ar' ? 'FR' : 'عر'}</span>
@@ -168,7 +168,7 @@ export function Navbar() {
             type="button"
             onClick={toggle}
             className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(226,232,240,0.15)] bg-[rgba(8,17,31,0.7)] text-[var(--text-primary)] transition hover:border-[rgba(226,232,240,0.3)] hover:bg-[rgba(29,78,216,0.15)] active:scale-95"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isOpen ? t('closeMenu') : t('openMenu')}
             aria-expanded={isOpen}
           >
             <AnimatePresence mode="wait" initial={false}>

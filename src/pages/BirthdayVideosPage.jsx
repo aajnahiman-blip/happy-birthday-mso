@@ -30,7 +30,7 @@ export function BirthdayVideosPage() {
     <PageLayout titleKey="videosTitle" descriptionKey="videosDesc">
       <Helmet>
         <title>{t('videosTitle')} | M♡S♡O</title>
-        <meta name="description" content="Birthday videos gallery celebrating Mohamed Soufiane M♡S♡O." />
+        <meta name="description" content={t('videosDesc')} />
       </Helmet>
 
       <div className="space-y-6">
@@ -46,7 +46,7 @@ export function BirthdayVideosPage() {
               </p>
             </div>
             <div className="rounded-full border border-[rgba(29,78,216,0.2)] bg-[rgba(29,78,216,0.1)] px-4 py-2 text-xs font-bold text-[#38BDF8]">
-              {birthdayVideos.length} {language === 'ar' ? 'فيديوهات احتفالية' : language === 'fr' ? 'Vidéos de célébration' : 'Cinematic videos'}
+              {birthdayVideos.length} {t('cinematicVideos')}
             </div>
           </div>
 

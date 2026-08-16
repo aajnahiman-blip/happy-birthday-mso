@@ -325,9 +325,7 @@ export function FinalSurprisePage() {
             }}
             className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#F59E0B] sm:text-sm"
           >
-            {language === 'ar'
-              ? 'لحظتك الأخيرة معي'
-              : 'Your final moment with me'}
+            {t('yourFinalMoment')}
           </motion.p>
 
           {/* Main heading */}
@@ -355,9 +353,9 @@ export function FinalSurprisePage() {
               </>
             ) : (
               <>
-                Happy Birthday{' '}
+                Joyeux Anniversaire{' '}
                 <span className="bg-gradient-to-r from-[#F8FAFC] via-[#FBBF24] to-[#F59E0B] bg-clip-text text-transparent">
-                  My Dear Love
+                  Mon Cher Amour
                 </span>
               </>
             )}
@@ -380,9 +378,7 @@ export function FinalSurprisePage() {
             className="mx-auto mt-5 max-w-2xl text-sm leading-8 text-[var(--text-secondary)] sm:text-base"
             dir={language === 'ar' ? 'rtl' : 'ltr'}
           >
-            {language === 'ar'
-              ? 'قبل أن تنتهي هذه الرحلة، تركت لك أجمل مفاجأة… لحظة صنعتها من الحب، والذكريات، وكل المشاعر التي أحملها لك.'
-              : 'Before this journey ends, I left you one final surprise… a moment made from love, memories, and everything I carry in my heart for you.'}
+            {t('finalSurpriseHeroDesc')}
           </motion.p>
         </motion.section>
 
@@ -467,9 +463,7 @@ export function FinalSurprisePage() {
                 <FaMagic className="text-xs text-[#F59E0B]" />
 
                 <span>
-                  {language === 'ar'
-                    ? 'تمت إضاءة أمنياتك'
-                    : 'Your wish has been cast'}
+                  {t('wishHasBeenCast')}
                 </span>
 
                 <FaMagic className="text-xs text-[#F59E0B]" />
@@ -507,15 +501,11 @@ export function FinalSurprisePage() {
                   </motion.div>
 
                   <p className="mt-4 text-sm font-bold text-[#F8FAFC]">
-                    {language === 'ar'
-                      ? 'انقر لفتح الهدية الختامية 💝'
-                      : 'Tap to open your final gift 💝'}
+                    {t('tapToOpenGift')}
                   </p>
 
                   <p className="mt-1 text-xs text-[var(--text-secondary)]">
-                    {language === 'ar'
-                      ? 'رسالة حب خاصة تنتظرك...'
-                      : 'A special love letter awaits...'}
+                    {t('specialLoveLetterAwaits')}
                   </p>
                 </motion.div>
               ) : (
@@ -626,9 +616,7 @@ export function FinalSurprisePage() {
                     {/* Closing signature */}
                     <div className="flex flex-col items-center gap-3 pt-1">
                       <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#CBD5E1] opacity-90">
-                        {language === 'ar'
-                          ? 'من قلبي إلى حبيبي'
-                          : 'From my heart to my love'}
+                        {t('fromMyHeartToMyLove')}
                       </p>
 
                       <div className="flex items-center gap-3">
@@ -665,9 +653,7 @@ export function FinalSurprisePage() {
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[rgba(226,232,240,0.25)]" />
 
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
-              {language === 'ar'
-                ? 'صُنِع بحبٍّ خالص لمحمد سفيان'
-                : 'Crafted with pure love for Mohamed Soufiane'}
+              {t('craftedWithLove')}
             </p>
 
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[rgba(226,232,240,0.25)]" />

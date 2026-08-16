@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export function LuxuryVideoCard({ video, onPlay, onPause, onEnded }) {
+  const { t } = useLanguage()
   const isValidPoster = video.poster && !video.poster.endsWith('.mp4')
 
   return (
@@ -30,7 +32,7 @@ export function LuxuryVideoCard({ video, onPlay, onPause, onEnded }) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">
-              M♡S♡O Birthday Video
+              {t('msoBirthdayVideo')}
             </p>
             <h3 className="mt-1 text-lg font-semibold text-[var(--text-primary)]">{video.title}</h3>
           </div>

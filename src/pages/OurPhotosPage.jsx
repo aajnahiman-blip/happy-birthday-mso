@@ -12,7 +12,7 @@ export function OurPhotosPage() {
     <PageLayout titleKey="photosTitle" descriptionKey="photosDesc">
       <Helmet>
         <title>{t('photosTitle')} | M♡S♡O</title>
-        <meta name="description" content="Elegant photo gallery of Mohamed Soufiane M♡S♡O." />
+        <meta name="description" content={t('photosDesc')} />
       </Helmet>
 
       <div className="space-y-6">

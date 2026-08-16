@@ -26,8 +26,8 @@ export function HomePage() {
   return (
     <PageLayout titleKey="homeTitle" descriptionKey="homeDesc">
       <Helmet>
-        <title>Happy Birthday Mohamed Soufiane | M♡S♡O</title>
-        <meta name="description" content="A luxury celebration space dedicated to Mohamed Soufiane M♡S♡O." />
+        <title>{t('homeTitle')} | M♡S♡O</title>
+        <meta name="description" content={t('homeDesc')} />
       </Helmet>
 
       <div className="space-y-6">
@@ -43,10 +43,10 @@ export function HomePage() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-xs uppercase tracking-[0.35em] text-[#E2E8F0] font-bold">
-                {language === 'ar' ? 'صور مميزة' : 'Featured Photos'}
+                {t('featuredPhotos')}
               </p>
               <h3 className="mt-2 text-2xl font-bold text-[var(--text-primary)]">
-                {language === 'ar' ? 'لحظات دافئة مميزة' : 'Moments that glow'}
+                {t('momentsThatGlow')}
               </h3>
             </div>
             <button
@@ -72,7 +72,7 @@ export function HomePage() {
                     onClick={() => {
                       const link = document.createElement('a')
                       link.href = photo.src
-                      link.download = `mso-${photo.label.toLowerCase().replace(/\s+/g, '-')}.svg`
+                      link.download = `mso-${photo.label.toLowerCase().replace(/\s+/g, '-')}.jpg`
                       link.click()
                     }}
                     className="rounded-full border border-[rgba(226,232,240,0.18)] px-3 py-1.5 text-xs font-semibold text-[#CBD5E1]"
@@ -93,7 +93,7 @@ export function HomePage() {
           className="rounded-[2rem] border border-[rgba(226,232,240,0.12)] bg-[var(--surface)] p-6 shadow-md"
         >
           <p className="text-xs uppercase tracking-[0.35em] text-[#E2E8F0] font-bold">
-            {language === 'ar' ? 'أحدث الذكريات' : 'Latest Memories'}
+            {t('latestMemories')}
           </p>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {latestMemories.map((memory) => (
@@ -116,7 +116,7 @@ export function HomePage() {
           className="rounded-[2rem] border border-[rgba(226,232,240,0.12)] bg-[var(--surface)] p-6 shadow-md"
         >
           <p className="text-xs uppercase tracking-[0.35em] text-[#E2E8F0] font-bold">
-            {language === 'ar' ? 'الموسيقى الخلفية الاحتفالية' : 'Background Celebration Soundtrack'}
+            {t('backgroundSoundtrack')}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <button
@@ -127,7 +127,7 @@ export function HomePage() {
               {isPlaying ? t('pauseMusic') : t('playMusic')}
             </button>
             <p className="text-xs text-[var(--text-secondary)]">
-              {language === 'ar' ? 'أنغام بيانو هادئة ترافق تصفحك لاحتفال محمد سفيان.' : 'Gentle piano soundtrack for browsing.'}
+              {t('pianoSoundtrackDesc')}
             </p>
           </div>
         </motion.section>
@@ -144,12 +144,10 @@ export function HomePage() {
       >
         <div className="mx-auto max-w-4xl rounded-[2.2rem] border border-[rgba(226,232,240,0.18)] bg-[linear-gradient(135deg,rgba(8,17,31,0.94),rgba(3,5,8,0.97))] p-8 shadow-[0_24px_70px_rgba(29,78,216,0.12)] backdrop-blur-xl">
           <h3 className="mt-2 text-2xl font-bold sm:text-3xl text-[var(--text-primary)]">
-            {language === 'ar' ? 'هل أنت مستعد للمفاجأة الختامية؟' : 'Ready for the Final Surprise?'}
+            {t('readyForFinalSurprise')}
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-[var(--text-secondary)] max-w-xl mx-auto">
-            {language === 'ar'
-              ? 'تجربة ختامية فاخرة وسينمائية إهداء لمحمد سفيان M♡S♡O'
-              : 'A luxury cinematic ending experience dedicated to Mohamed Soufiane M♡S♡O'}
+            {t('finalSurpriseCTADesc')}
           </p>
           <div className="mt-6">
             <Link

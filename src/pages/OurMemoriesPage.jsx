@@ -12,7 +12,7 @@ export function OurMemoriesPage() {
     <PageLayout titleKey="galleryTitle" descriptionKey="galleryDesc">
       <Helmet>
         <title>{t('galleryTitle')} | M♡S♡O</title>
-        <meta name="description" content="A luxury gallery of cherished memories celebrating Mohamed Soufiane M♡S♡O." />
+        <meta name="description" content={t('galleryDesc')} />
       </Helmet>
 
       <div className="space-y-6">

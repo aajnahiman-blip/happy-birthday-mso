@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useMusic } from '../../contexts/MusicContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 import { musicTracks } from '../../data/media'
 
 function formatTime(seconds) {
@@ -10,6 +11,7 @@ function formatTime(seconds) {
 }
 
 export function MusicPlayer() {
+  const { t } = useLanguage()
   const {
     currentTrack,
     setCurrentTrack,
@@ -35,7 +37,7 @@ export function MusicPlayer() {
     <section className="rounded-[2rem] border border-[rgba(29,78,216,0.2)] bg-[rgba(8,17,31,0.88)] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">Background Music</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#2563EB] font-bold">{t('backgroundSoundtrack')}</p>
           <h3 className="mt-1 text-xl font-bold text-[var(--text-primary)]">{activeTrack.title}</h3>
           <p className="text-xs text-[var(--text-secondary)]">{activeTrack.artist}</p>
         </div>
@@ -82,7 +84,7 @@ export function MusicPlayer() {
           onClick={togglePlayback}
           className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#1e40af] px-6 py-2 text-xs font-bold text-white shadow-[0_4px_16px_rgba(29,78,216,0.25)] hover:opacity-90 transition"
         >
-          {isPlaying ? '⏸ Pause' : '▶ Play'}
+          {isPlaying ? `⏸ ${t('pauseMusic')}` : `▶ ${t('playMusic')}`}
         </button>
 
         <div className="flex items-center gap-3">
@@ -91,7 +93,7 @@ export function MusicPlayer() {
             onClick={toggleMute}
             className="text-xs font-semibold text-[#38BDF8] hover:underline"
           >
-            {isMuted || volume === 0 ? '🔇 Muted' : '🔊 Volume'}
+            {isMuted || volume === 0 ? `🔇 ${t('muted')}` : `🔊 ${t('volume')}`}
           </button>
           <input
             type="range"

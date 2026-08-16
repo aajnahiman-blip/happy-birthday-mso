@@ -37,7 +37,7 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
         whileHover={!isBlown ? { scale: 1.04 } : {}}
         whileTap={!isBlown ? { scale: 0.95 } : {}}
         className={`group relative outline-none ${isBlown ? 'cursor-default' : 'cursor-pointer'}`}
-        aria-label={isBlown ? 'Candles blown' : t('blowOutCandles')}
+        aria-label={isBlown ? t('candlesBlown') : t('blowOutCandles')}
       >
         {/* CTA label pill */}
         <div
@@ -49,11 +49,7 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
         >
           <div className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
           <span className="text-sm font-bold tracking-wider">
-            {isBlown
-              ? language === 'ar'
-                ? 'تمّ إطفاء الشموع بالأمنيات'
-                : 'Candles blown — wish granted!'
-              : t('makeAWish')}
+            {isBlown ? t('candlesBlown') : t('makeAWish')}
           </span>
           <div className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
         </div>
@@ -167,11 +163,7 @@ export function LuxuryCake({ isBlown, onBlowCandles }) {
 
       {/* Hint text */}
       <p className="mt-4 text-center text-xs text-[var(--text-secondary)] max-w-xs opacity-80">
-        {isBlown
-          ? language === 'ar'
-            ? 'أضاءت أمنياتك السماء'
-            : 'Your wishes lit up the sky'
-          : t('blowOutCandles')}
+        {isBlown ? t('wishesLitSky') : t('blowOutCandles')}
       </p>
     </div>
   )

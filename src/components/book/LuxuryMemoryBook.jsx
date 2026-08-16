@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export function LuxuryMemoryBook({ pages, title, description }) {
+  const { t } = useLanguage()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(1)
   const [isAnimating, setIsAnimating] = useState(false)
@@ -22,7 +24,7 @@ export function LuxuryMemoryBook({ pages, title, description }) {
     <section className="rounded-[2rem] border border-[var(--border)] bg-[rgba(15,23,42,0.72)] p-4 shadow-[0_24px_70px_rgba(2,8,23,0.28)] backdrop-blur-xl sm:p-6 lg:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-[var(--text-muted)]">Luxury Memory Book</p>
+          <p className="text-sm uppercase tracking-[0.35em] text-[var(--text-muted)]">{t('memoryBookTitle')}</p>
           <h3 className="mt-2 text-2xl font-semibold sm:text-3xl">{title}</h3>
           <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--text-secondary)] sm:text-base">{description}</p>
         </div>
@@ -34,7 +36,7 @@ export function LuxuryMemoryBook({ pages, title, description }) {
             disabled={currentIndex === 0 || isAnimating}
             className="rounded-full px-3 py-2 text-sm font-semibold text-[var(--text-primary)] transition disabled:cursor-not-allowed disabled:opacity-40"
           >
-            Previous
+            {t('previous')}
           </button>
           <span className="px-2 text-sm text-[var(--text-secondary)]">
             {currentIndex + 1}/{pages.length}
@@ -45,7 +47,7 @@ export function LuxuryMemoryBook({ pages, title, description }) {
             disabled={currentIndex === pages.length - 1 || isAnimating}
             className="rounded-full bg-[var(--accent)] px-3 py-2 text-sm font-semibold text-[#06070b] transition disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Next
+            {t('next')}
           </button>
         </div>
       </div>
@@ -78,7 +80,7 @@ export function LuxuryMemoryBook({ pages, title, description }) {
                 </div>
 
                 <div className="flex flex-col justify-center rounded-[1.2rem] border border-[rgba(212,175,55,0.16)] bg-[rgba(248,248,248,0.08)] p-4 shadow-inner sm:p-6">
-                  <p className="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)]">Page {currentIndex + 1}</p>
+                  <p className="text-sm uppercase tracking-[0.3em] text-[var(--text-muted)]">{t('page')} {currentIndex + 1}</p>
                   <h4 className="mt-3 text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">{currentPage.title}</h4>
                   <p className="mt-4 text-sm leading-8 text-[var(--text-secondary)] sm:text-base">{currentPage.memory}</p>
 

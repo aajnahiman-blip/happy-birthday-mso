@@ -12,7 +12,7 @@ export function LettersPage() {
     <PageLayout titleKey="lettersTitle" descriptionKey="lettersDesc">
       <Helmet>
         <title>{t('lettersTitle')} | M♡S♡O</title>
-        <meta name="description" content="Romantic letters of love for Mohamed Soufiane M♡S♡O." />
+        <meta name="description" content={t('lettersDesc')} />
       </Helmet>
 
       <div className="space-y-6">
@@ -28,7 +28,7 @@ export function LettersPage() {
             </p>
           </div>
           <div className="rounded-full border border-[rgba(29,78,216,0.2)] bg-[rgba(29,78,216,0.1)] px-4 py-2 text-xs font-bold text-[#38BDF8]">
-            {friendshipLetters.length} {language === 'ar' ? 'رسائل خاصة' : 'Private notes'}
+            {friendshipLetters.length} {t('privateNotes')}
           </div>
         </div>
 

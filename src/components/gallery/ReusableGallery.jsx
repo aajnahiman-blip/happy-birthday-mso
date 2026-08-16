@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 function getAspectClass(aspect) {
   switch (aspect) {
@@ -27,6 +28,7 @@ function getImageHeight(aspect) {
 }
 
 export function ReusableGallery({ title, description, items, pageTitle, pageDescription }) {
+  const { t } = useLanguage()
   const [selectedImage, setSelectedImage] = useState(null)
   const [loadedImages, setLoadedImages] = useState([])
 
@@ -77,7 +79,7 @@ export function ReusableGallery({ title, description, items, pageTitle, pageDesc
                 <div className="relative overflow-hidden">
                   {!isLoaded ? (
                     <div className={`flex items-center justify-center bg-[rgba(28,37,57,0.86)] ${getImageHeight(item.aspect)}`}>
-                      <span className="text-sm text-[var(--text-muted)]">Loading image…</span>
+                      <span className="text-sm text-[var(--text-muted)]">{t('loading')}</span>
                     </div>
                   ) : (
                     <img
@@ -107,7 +109,7 @@ export function ReusableGallery({ title, description, items, pageTitle, pageDesc
             onClick={() => setSelectedImage(null)}
             className="absolute right-4 top-4 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur"
           >
-            Close
+            {t('close')}
           </button>
           <div className="w-full max-w-4xl rounded-[1.8rem] border border-[rgba(212,175,55,0.18)] bg-[rgba(15,23,42,0.95)] p-3 shadow-[0_30px_90px_rgba(0,0,0,0.46)] sm:p-4">
             <img src={selectedImage.src} alt={selectedImage.title} className="max-h-[70vh] w-full rounded-[1.2rem] object-contain" />

@@ -11,8 +11,8 @@ export function GraduationPage() {
   return (
     <PageLayout titleKey="graduationTitle" descriptionKey="graduationDesc">
       <Helmet>
-        <title>{t('graduationTitle')} | M♡S♡O 💎</title>
-        <meta name="description" content="Graduation timeline celebrating Mohamed Soufiane M♡S♡O 💎." />
+        <title>{t('graduationTitle')} | M♡S♡O</title>
+        <meta name="description" content={t('graduationDesc')} />
       </Helmet>
       <div className="space-y-6">
         <DedicationQuote quoteKey="quoteGraduation" />

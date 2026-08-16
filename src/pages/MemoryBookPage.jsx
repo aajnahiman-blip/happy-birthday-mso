@@ -11,8 +11,8 @@ export function MemoryBookPage() {
   return (
     <PageLayout titleKey="memoryBookTitle" descriptionKey="memoryBookDesc">
       <Helmet>
-        <title>{t('memoryBookTitle')} | M♡S♡O 💎</title>
-        <meta name="description" content="Luxury memory book dedicated to Mohamed Soufiane M♡S♡O 💎." />
+        <title>{t('memoryBookTitle')} | M♡S♡O</title>
+        <meta name="description" content={t('memoryBookDesc')} />
       </Helmet>
       <div className="space-y-6">
         <DedicationQuote quoteKey="quoteMemoryBook" />

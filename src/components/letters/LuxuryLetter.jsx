@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 export function LuxuryLetter({ letter }) {
+  const { t } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -13,7 +15,7 @@ export function LuxuryLetter({ letter }) {
         transition={{ duration: 0.35 }}
         onClick={() => setIsOpen((current) => !current)}
         className="relative w-full max-w-[560px] text-left"
-        aria-label={isOpen ? 'Close letter' : 'Open letter'}
+        aria-label={isOpen ? t('closeLetterAction') : t('openLetterAction')}
       >
         <motion.div
           animate={{ rotateX: isOpen ? -12 : 0, rotateZ: isOpen ? -4 : 0, y: isOpen ? -6 : 0 }}
@@ -26,7 +28,7 @@ export function LuxuryLetter({ letter }) {
             <div className="relative z-10">
               <div className="mb-5 flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-[var(--text-muted)]">Love Letter | رسالة حب</p>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[var(--text-muted)]">{t('loveLetterTag')}</p>
                   <h3 className="mt-2 text-xl font-semibold text-[var(--text-primary)]">{letter.title}</h3>
                 </div>
                 <span className="rounded-full border border-[rgba(56,189,248,0.1)] bg-[rgba(17,24,39,0.88)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--text-secondary)]">
@@ -46,8 +48,8 @@ export function LuxuryLetter({ letter }) {
                     >
                       <div className="mx-auto flex w-full max-w-[360px] flex-col items-center rounded-[1.2rem] border border-[rgba(8,17,31,0.1)] bg-[linear-gradient(135deg,rgba(248,248,248,0.98),rgba(224,232,245,0.95))] p-6 text-center shadow-[0_12px_32px_rgba(8,17,31,0.06)]">
                         <div className="mb-4 h-12 w-24 rounded-full border border-[rgba(56,189,248,0.12)]" />
-                        <p className="text-sm uppercase tracking-[0.35em] text-[#94A3B8]">Open the envelope</p>
-                        <p className="mt-3 text-sm leading-7 text-[#08111F]">Tap to reveal a private note written with care.</p>
+                        <p className="text-sm uppercase tracking-[0.35em] text-[#94A3B8]">{t('openLetter')}</p>
+                        <p className="mt-3 text-sm leading-7 text-[#08111F]">{t('openLetterDesc')}</p>
                       </div>
                     </motion.div>
                   ) : (
