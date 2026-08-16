@@ -103,19 +103,33 @@ export function ReusableGallery({ title, description, items, pageTitle, pageDesc
       </motion.section>
 
       {selectedImage ? (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[rgba(2,8,23,0.92)] px-3 py-4 sm:px-6">
-          <button
-            type="button"
-            onClick={() => setSelectedImage(null)}
-            className="absolute right-4 top-4 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur"
-          >
-            {t('close')}
-          </button>
-          <div className="w-full max-w-4xl rounded-[1.8rem] border border-[rgba(212,175,55,0.18)] bg-[rgba(15,23,42,0.95)] p-3 shadow-[0_30px_90px_rgba(0,0,0,0.46)] sm:p-4">
-            <img src={selectedImage.src} alt={selectedImage.title} className="max-h-[70vh] w-full rounded-[1.2rem] object-contain" />
-            <div className="mt-4 px-2 pb-2">
-              <h3 className="text-xl font-semibold text-[var(--text-primary)]">{selectedImage.title}</h3>
-              <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{selectedImage.description}</p>
+        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 p-4 md:p-8 select-none overflow-hidden max-w-full max-h-full">
+          <div className="absolute top-4 right-4 z-[110] flex items-center justify-end">
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="rounded-full border border-white/20 bg-black/60 hover:bg-black/90 px-4 py-2 text-xs md:text-sm font-semibold text-white transition backdrop-blur-md cursor-pointer"
+            >
+              {t('close')}
+            </button>
+          </div>
+          <div className="flex flex-col items-center justify-center w-full h-full max-w-[100vw] max-h-[100vh] overflow-hidden p-2 mt-12 md:mt-0">
+            <div className="relative flex flex-col items-center justify-center max-w-full max-h-full">
+              <div className="relative flex items-center justify-center max-w-full max-h-[68vh] md:max-h-[75vh]">
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.title}
+                  className="max-w-full max-h-full w-auto h-auto object-contain rounded-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+                />
+              </div>
+              <div className="mt-4 text-center max-w-2xl px-4">
+                <h3 className="text-base md:text-lg font-bold text-[#F8F8F8] tracking-wide">{selectedImage.title}</h3>
+                {selectedImage.description && (
+                  <p className="mt-1.5 text-xs md:text-sm text-[#C0C0C0] leading-relaxed max-h-[12vh] overflow-y-auto pr-1">
+                    {selectedImage.description}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
